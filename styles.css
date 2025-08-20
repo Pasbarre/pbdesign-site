@@ -1,0 +1,122 @@
+/* Variables de couleur */
+:root {
+    --color-primary: #40010D;  /* Pour les boutons et bandeaux */
+    --color-text: #736D62;     /* Pour les textes */
+    --color-bg: #D9CBBA;       /* Pour les fonds */
+}
+
+/* Styles de base */
+body {
+    font-family: 'Comfortaa', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+h1, h2, h3, h4, .logo-text {
+    font-family: 'Fredericka the Great', cursive;
+    font-weight: normal;
+}
+
+/* Polices */
+@font-face {
+    font-family: 'Fredericka the Great';
+    src: url('Typos/Fredericka_the_Great/FrederickatheGreat-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('Typos/Comfortaa/Comfortaa-VariableFont_wght.ttf') format('truetype');
+    font-weight: 300 700;
+    font-style: normal;
+}
+
+/* Boutons et interactions */
+button:hover {
+    opacity: 0.9;
+}
+
+/* Formulaires */
+input:focus, textarea:focus {
+    border-color: var(--color-primary) !important;
+    outline: none;
+}
+
+input, textarea {
+    background-color: var(--color-bg) !important;
+    border-color: var(--color-primary) !important;
+    color: var(--color-text) !important;
+    opacity: 0.9;
+}
+
+/* Images et carrousel */
+.hero-image {
+    background-image: linear-gradient(rgba(64, 1, 13, 0.7), rgba(38, 32, 1, 0.3)), url('https://images.unsplash.com/photo-1589476993333-557386937aea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Cartes produits */
+.product-card {
+    background-color: var(--color-bg);
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+/* Navigation */
+.nav-link {
+    color: var(--color-text);
+}
+
+.nav-link:hover {
+    opacity: 0.8;
+}
+
+/* Boutons d'action */
+.action-button {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+}
+
+.action-button:hover {
+    opacity: 0.9;
+}
+
+/* Modal et overlay */
+.modal {
+    background-color: var(--color-bg);
+}
+
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Carrousel */
+.carousel-nav {
+    color: var(--color-bg);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.carousel-nav:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Ajustements globaux */
+.text-content {
+    color: var(--color-text);
+}
+
+.bg-content {
+    background-color: var(--color-bg);
+}
+
+.primary-color {
+    color: var(--color-primary);
+}
+
+.primary-bg {
+    background-color: var(--color-primary);
+}

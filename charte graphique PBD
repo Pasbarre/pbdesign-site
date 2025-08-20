@@ -1,0 +1,20 @@
+/* Color Theme Swatches in Hex */
+.Wine-glass--bottle-1-hex { color: #40010D; }
+.Wine-glass--bottle-2-hex { color: #8C0327; }
+.Wine-glass--bottle-3-hex { color: #262001; }
+.Wine-glass--bottle-4-hex { color: #736D62; }
+.Wine-glass--bottle-5-hex { color: #D9CBBA; }
+
+/* Color Theme Swatches in RGBA */
+.Wine-glass--bottle-1-rgba { color: rgba(63, 1, 12, 1); }
+.Wine-glass--bottle-2-rgba { color: rgba(140, 2, 39, 1); }
+.Wine-glass--bottle-3-rgba { color: rgba(38, 32, 0, 1); }
+.Wine-glass--bottle-4-rgba { color: rgba(114, 108, 97, 1); }
+.Wine-glass--bottle-5-rgba { color: rgba(216, 203, 186, 1); }
+
+/* Color Theme Swatches in HSLA */
+.Wine-glass--bottle-1-hsla { color: hsla(348, 96, 12, 1); }
+.Wine-glass--bottle-2-hsla { color: hsla(343, 96, 28, 1); }
+.Wine-glass--bottle-3-hsla { color: hsla(50, 96, 7, 1); }
+.Wine-glass--bottle-4-hsla { color: hsla(39, 8, 41, 1); }
+.Wine-glass--bottle-5-hsla { color: hsla(33, 28, 79, 1); }
