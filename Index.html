@@ -69,7 +69,7 @@
             background-color: rgba(255, 255, 255, 0.5);
             pointer-events: none;
         }
-        .product-card:hover .product-overlay {
+        .product-card:hover .view-details-btn {
             opacity: 1;
         }
         .modal {
@@ -194,7 +194,7 @@
         <div class="text-center px-4 relative z-10">
             <h1 class="text-6xl md:text-9xl font-light mb-6" style="color: var(--color-primary);">PBDesign</h1>
             <p class="text-2xl md:text-3xl mb-10 max-w-3xl mx-auto font-medium" style="color: var(--color-primary);">Coutellerie artisanale d'inspiration scandinave et japonaise</p>
-            <a href="#boutique" class="px-8 py-3 inline-block transition duration-300 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);">Découvrir la boutique</a>
+            <a href="#boutique" class="px-8 py-3 inline-block transition duration-300 hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;">Découvrir la boutique</a>
         </div>
     </section>
 
@@ -205,100 +205,94 @@
             
             <!-- Categories -->
             <div class="flex flex-wrap justify-center gap-4 mb-12">
-                <button class="category-btn px-6 py-2 transition" style="border: 1px solid var(--color-primary); color: var(--color-text);" data-category="all">Tous</button>
-                <button class="category-btn px-6 py-2 transition" style="border: 1px solid var(--color-primary); color: var(--color-text);" data-category="puukko">Puukko</button>
-                <button class="category-btn px-6 py-2 transition" style="border: 1px solid var(--color-primary); color: var(--color-text);" data-category="pliant">Pliants</button>
-                <button class="category-btn px-6 py-2 transition" style="border: 1px solid var(--color-primary); color: var(--color-text);" data-category="cuisine">Cuisine</button>
-                <button class="category-btn px-6 py-2 transition" style="border: 1px solid var(--color-primary); color: var(--color-text);" data-category="accessoire">Accessoires</button>
+                <button class="category-btn px-6 py-2 transition hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;" data-category="all">Tous</button>
+                <button class="category-btn px-6 py-2 transition hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;" data-category="puukko">Puukko</button>
+                <button class="category-btn px-6 py-2 transition hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;" data-category="pliant">Pliants</button>
+                <button class="category-btn px-6 py-2 transition hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;" data-category="cuisine">Cuisine</button>
+                <button class="category-btn px-6 py-2 transition hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;" data-category="accessoire">Accessoires</button>
             </div>
             
             <!-- Products Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Product 1 -->
-                <div class="product-card rounded overflow-hidden relative" style="background-color: var(--color-bg);" data-category="puukko">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1589476993333-557386937aea?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Puukko scandinave" class="w-full h-full object-cover">
+                <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="puukko">
+                    <div class="h-64 overflow-hidden bg-gray-900">
                     </div>
                     <div class="p-4">
-                        <h3 class="text-xl mb-2" style="color: var(--color-text);">Puukko Traditionnel</h3>
-                        <p class="mb-4" style="color: var(--color-text);">Couteau scandinave en acier carbone</p>
+                        <h3 class="text-xl mb-2" style="color: #FFFFFF;">Puukko Traditionnel</h3>
+                        <p class="mb-4" style="color: #FFFFFF;">Couteau scandinave en acier carbone</p>
                         <p class="text-lg" style="color: var(--color-primary);">290€</p>
                     </div>
-                    <div class="product-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition">
+                    <div class="product-overlay absolute inset-0 flex items-center justify-center opacity-0 transition">
                 <button class="view-details-btn px-6 py-2 transition hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="1">Voir détails</button>
             </div>
         </div>                <!-- Product 2 -->
-                <div class="product-card rounded overflow-hidden relative" style="background-color: var(--color-bg);" data-category="cuisine">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1603362858665-d3e9e56a6e24?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Couteau de cuisine" class="w-full h-full object-cover">
+                <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="cuisine">
+                    <div class="h-64 overflow-hidden bg-gray-900">
                     </div>
                     <div class="p-4">
-                        <h3 class="text-xl mb-2" style="color: var(--color-text);">Santoku Japonais</h3>
-                        <p class="mb-4" style="color: var(--color-text);">Couteau de cuisine polyvalent</p>
+                        <h3 class="text-xl mb-2" style="color: #FFFFFF;">Santoku Japonais</h3>
+                        <p class="mb-4" style="color: #FFFFFF;">Couteau de cuisine polyvalent</p>
                         <p class="text-lg" style="color: var(--color-primary);">350€</p>
                     </div>
-                    <div class="product-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition">
-                        <button class="view-details-btn px-6 py-2 transition hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="2">Voir détails</button>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="2">Voir détails</button>
                     </div>
                 </div>
                 
                 <!-- Product 3 -->
-                <div class="product-card rounded overflow-hidden relative" style="background-color: var(--color-bg);" data-category="pliant">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1602826347632-fc49a8678310?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Couteau pliant" class="w-full h-full object-cover">
+                <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="pliant">
+                    <div class="h-64 overflow-hidden bg-gray-900">
                     </div>
                     <div class="p-4">
-                        <h3 class="text-xl mb-2" style="color: var(--color-text);">Pliant Artisanal</h3>
-                        <p class="mb-4" style="color: var(--color-text);">Couteau de poche en acier damas</p>
+                        <h3 class="text-xl mb-2" style="color: #FFFFFF;">Pliant Artisanal</h3>
+                        <p class="mb-4" style="color: #FFFFFF;">Couteau de poche en acier damas</p>
                         <p class="text-lg" style="color: var(--color-primary);">420€</p>
                     </div>
-                    <div class="product-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition">
-                        <button class="view-details-btn px-6 py-2 transition hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="3">Voir détails</button>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;" data-product="3">Voir détails</button>
                     </div>
                 </div>
                 
                 <!-- Product 4 -->
-                <div class="product-card rounded overflow-hidden relative" style="background-color: var(--color-bg);" data-category="accessoire">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1618941719973-6a6d8c5f4a1c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Étui en cuir" class="w-full h-full object-cover">
+                <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="accessoire">
+                    <div class="h-64 overflow-hidden bg-gray-900">
                     </div>
                     <div class="p-4">
-                        <h3 class="text-xl mb-2" style="color: var(--color-text);">Étui en Cuir</h3>
-                        <p class="mb-4" style="color: var(--color-text);">Étui sur mesure pour couteau</p>
+                        <h3 class="text-xl mb-2" style="color: #FFFFFF;">Étui en Cuir</h3>
+                        <p class="mb-4" style="color: #FFFFFF;">Étui sur mesure pour couteau</p>
                         <p class="text-lg" style="color: var(--color-primary);">120€</p>
                     </div>
-                    <div class="product-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition">
-                        <button class="view-details-btn px-6 py-2 transition hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="4">Voir détails</button>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="4">Voir détails</button>
                     </div>
                 </div>
                 
                 <!-- Product 5 -->
-                <div class="product-card rounded overflow-hidden relative" style="background-color: var(--color-bg);" data-category="puukko">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1622372738946-62e02505feb3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Puukko de chasse" class="w-full h-full object-cover">
+                <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="puukko">
+                    <div class="h-64 overflow-hidden bg-gray-900">
                     </div>
                     <div class="p-4">
-                        <h3 class="text-xl mb-2" style="color: var(--color-text);">Puukko de Chasse</h3>
-                        <p class="mb-4" style="color: var(--color-text);">Couteau robuste avec manche en bouleau</p>
+                        <h3 class="text-xl mb-2" style="color: #FFFFFF;">Puukko de Chasse</h3>
+                        <p class="mb-4" style="color: #FFFFFF;">Couteau robuste avec manche en bouleau</p>
                         <p class="text-lg" style="color: var(--color-primary);">320€</p>
                     </div>
-                    <div class="product-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition">
-                        <button class="view-details-btn px-6 py-2 transition hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="5">Voir détails</button>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="5">Voir détails</button>
                     </div>
                 </div>
                 
                 <!-- Product 6 -->
-                <div class="product-card rounded overflow-hidden relative" style="background-color: var(--color-bg);" data-category="cuisine">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1603362858665-d3e9e56a6e24?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Couteau à découper" class="w-full h-full object-cover">
+                <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="cuisine">
+                    <div class="h-64 overflow-hidden bg-gray-900">
                     </div>
                     <div class="p-4">
-                        <h3 class="text-xl mb-2" style="color: var(--color-text);">Couteau à Découper</h3>
-                        <p class="mb-4" style="color: var(--color-text);">Lame forgée à la main</p>
+                        <h3 class="text-xl mb-2" style="color: #FFFFFF;">Couteau à Découper</h3>
+                        <p class="mb-4" style="color: #FFFFFF;">Lame forgée à la main</p>
                         <p class="text-lg" style="color: var(--color-primary);">380€</p>
                     </div>
-                    <div class="product-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition">
-                        <button class="view-details-btn px-6 py-2 transition hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="6">Voir détails</button>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="6">Voir détails</button>
                     </div>
                 </div>
             </div>
@@ -358,7 +352,7 @@
             <div class="text-center max-w-2xl mx-auto">
                 <h3 class="text-xl mb-4">Visitez l'Atelier</h3>
                 <p class="mb-6" style="color: var(--color-text);">Situé au cœur de la Normandie, mon atelier est ouvert sur rendez-vous pour les passionnés souhaitant découvrir le processus de fabrication et l'univers de la coutellerie artisanale.</p>
-                <a href="#contact" class="inline-block px-8 py-3 transition hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);">Prendre rendez-vous</a>
+                <a href="#contact" class="inline-block px-8 py-3 transition hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;">Prendre rendez-vous</a>
             </div>
         </div>
     </section>
@@ -388,7 +382,7 @@
                                 style="background-color: var(--color-bg); border: 1px solid var(--color-primary); color: var(--color-text);"></textarea>
                         </div>
                         <button type="submit" class="px-6 py-2 rounded transition hover:opacity-90" 
-                            style="background-color: var(--color-primary); color: var(--color-bg);">Envoyer</button>
+                            style="background-color: var(--color-primary); color: #D9CBBA;">Envoyer</button>
                     </form>
                 </div>
                 
@@ -556,7 +550,7 @@
                             <button class="quantity-btn px-3 py-1 text-xl hover:opacity-80" data-action="increase">+</button>
                         </div>
                         <button id="add-to-cart" class="flex-1 py-2 px-4 rounded transition hover:opacity-90" 
-                            style="background-color: var(--color-primary); color: var(--color-bg);">Ajouter au panier</button>
+                            style="background-color: var(--color-primary); color: #D9CBBA;">Ajouter au panier</button>
                     </div>
                 </div>
             </div>
@@ -595,7 +589,7 @@
                         <span id="cart-total">0€</span>
                     </div>
                     
-                    <button id="checkout-btn" class="w-full py-3 mt-6 rounded transition hidden hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);">Passer la commande</button>
+                    <button id="checkout-btn" class="w-full py-3 mt-6 rounded transition hidden hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;">Passer la commande</button>
                 </div>
             </div>
         </div>
@@ -611,7 +605,7 @@
             </div>
             <h3 class="text-xl mb-2" style="color: var(--color-text);">Commande validée</h3>
             <p class="mb-6" style="color: var(--color-text);">Merci pour votre achat. Nous avons reçu votre commande et vous contacterons sous peu.</p>
-            <button id="close-success" class="px-6 py-2 rounded transition hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);">Fermer</button>
+            <button id="close-success" class="px-6 py-2 rounded transition hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;">Fermer</button>
         </div>
     </div>
 
