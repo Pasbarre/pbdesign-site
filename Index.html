@@ -80,6 +80,7 @@
             overflow-y: auto;
             width: 95vw;
             max-width: 1200px;
+            min-width: 320px; /* Largeur minimale pour mobile */
         }
         
         /* Styles pour l'agrandissement d'image */
@@ -133,6 +134,28 @@
         
         .zoom-close-btn:hover {
             background: rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Style pour afficher les sauts de ligne dans les descriptions */
+        #modal-description {
+            white-space: pre-line;
+            line-height: 1.6;
+        }
+        
+        /* Style pour l'avertissement sous le carrousel */
+        .carbon-warning {
+            background-color: #fef2f2;
+            border: 1px solid #dc2626;
+            padding: 12px;
+            margin-top: 16px;
+            font-size: 0.75rem;
+            line-height: 1.4;
+        }
+        
+        .warning-title {
+            color: #dc2626;
+            font-weight: bold;
+            margin-bottom: 8px;
         }
         
         /* ...existing styles... */
@@ -223,7 +246,7 @@
                         <p class="text-lg font-bold" style="color: #D9CBBA;">140€</p>
                     </div>
                     <div class="absolute inset-0 flex items-center justify-center">
-                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="7">Voir détails</button>
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="6">Voir détails</button>
                     </div>
                 </div>
 
@@ -237,7 +260,7 @@
                         <p class="text-lg font-bold" style="color: #D9CBBA;">190€</p>
                     </div>
                     <div class="absolute inset-0 flex items-center justify-center">
-                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="8">Voir détails</button>
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="7">Voir détails</button>
                     </div>
                 </div>
 
@@ -251,7 +274,7 @@
                         <p class="text-lg font-bold" style="color: #D9CBBA;">140€</p>
                     </div>
                     <div class="absolute inset-0 flex items-center justify-center">
-                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="9">Voir détails</button>
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="8">Voir détails</button>
                     </div>
                 </div>
 
@@ -265,7 +288,7 @@
                         <p class="text-lg font-bold" style="color: #D9CBBA;">190€</p>
                     </div>
                     <div class="absolute inset-0 flex items-center justify-center">
-                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="10">Voir détails</button>
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="9">Voir détails</button>
                     </div>
                 </div>
 
@@ -279,7 +302,7 @@
                         <p class="text-lg font-bold" style="color: #D9CBBA;">210€</p>
                     </div>
                     <div class="absolute inset-0 flex items-center justify-center">
-                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="11">Voir détails</button>
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="10">Voir détails</button>
                     </div>
                 </div>
 
@@ -294,7 +317,7 @@
                         <p class="text-lg font-bold" style="color: #D9CBBA;">160€</p>
                     </div>
                     <div class="absolute inset-0 flex items-center justify-center">
-                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="12">Voir détails</button>
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="11">Voir détails</button>
                     </div>
                 </div>
 
@@ -308,7 +331,7 @@
                         <p class="text-lg font-bold" style="color: #D9CBBA;">120€</p>
                     </div>
                     <div class="absolute inset-0 flex items-center justify-center">
-                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="13">Voir détails</button>
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="12">Voir détails</button>
                     </div>
                 </div>
 
@@ -322,7 +345,7 @@
                         <p class="text-lg font-bold" style="color: #D9CBBA;">160€</p>
                     </div>
                     <div class="absolute inset-0 flex items-center justify-center">
-                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="14">Voir détails</button>
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="13">Voir détails</button>
                     </div>
                 </div>
 
@@ -336,7 +359,7 @@
                         <p class="text-lg font-bold" style="color: #D9CBBA;">160€</p>
                     </div>
                     <div class="absolute inset-0 flex items-center justify-center">
-                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="15">Voir détails</button>
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="14">Voir détails</button>
                     </div>
                 </div>
 
@@ -572,76 +595,79 @@
             </svg>
         </button>
             
-            <div class="flex flex-col md:flex-row gap-6">
-                <div class="md:w-1/2">
-                    <div class="relative">
-                        <div class="h-64 md:h-80 rounded overflow-hidden mb-4" style="background-color: var(--color-dark);">
-                            <img id="modal-image" src="" alt="" class="w-full h-full object-contain image-clickable" title="Cliquez pour agrandir">
-                        </div>
-                        <button class="carousel-nav prev absolute left-0 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 p-2 rounded-r" style="color: var(--color-light);">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                            </svg>
-                        </button>
-                        <button class="carousel-nav next absolute right-0 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 p-2 rounded-l" style="color: var(--color-light);">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </button>
+        <div class="flex flex-col md:flex-row gap-6">
+            <div class="md:w-1/2">
+                <div class="relative">
+                    <div class="h-64 md:h-80 rounded overflow-hidden mb-4" style="background-color: var(--color-dark);">
+                        <img id="modal-image" src="" alt="" class="w-full h-full object-contain image-clickable" title="Cliquez pour agrandir">
                     </div>
-                    <div id="thumbnail-container" class="grid grid-cols-5 gap-2">
-                        <!-- Will be filled dynamically with 5 images -->
-                    </div>
+                    <button class="carousel-nav prev absolute left-0 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 p-2 rounded-r" style="color: var(--color-light);">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <button class="carousel-nav next absolute right-0 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 p-2 rounded-l" style="color: var(--color-light);">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+                <div id="thumbnail-container" class="grid grid-cols-5 gap-2">
+                    <!-- Will be filled dynamically with 5 images -->
                 </div>
                 
-                <div class="md:w-1/2">
-                    <h3 id="modal-title" class="text-2xl mb-2" style="color: var(--color-text);">Puukko Traditionnel</h3>
-                    <p id="modal-price" class="text-xl mb-4" style="color: var(--color-primary);">290€</p>
-                    
-                    <div class="mb-6">
-                        <h4 class="text-lg mb-2">Description</h4>
-                        <p id="modal-description" style="color: var(--color-text);">Couteau scandinave forgé à la main en acier carbone avec manche en bouleau massif. Lame de 10cm, longueur totale 22cm. Poids 150g.</p>
+                <!-- Avertissement pour le Puukko Carbone -->
+                <div id="carbon-warning" class="carbon-warning hidden">
+                    <div class="warning-title">Avertissement important</div>
+                    <div style="color: var(--color-text);">
+                        <p><strong>Entretien de la lame en acier 80CrV2</strong></p>
+                        <p style="margin: 8px 0;">Contrairement aux aciers inoxydables, cet acier nécessite une attention particulière pour conserver ses qualités :</p>
+                        <p style="margin: 8px 0;"><strong>Risque de rouille :</strong> L'acier 80CrV2 est sensible à l'humidité. Il est impératif d'essuyer la lame immédiatement après chaque usage et de la maintenir au sec pour prévenir l'apparition de rouille.</p>
+                        <p style="margin: 8px 0;"><strong>Patine naturelle :</strong> Avec le temps et l'usage, la lame va développer une patine naturelle. Cette coloration est tout à fait normale et ne compromet en rien la qualité de l'acier, elle agit même comme une protection supplémentaire contre la corrosion.</p>
+                        <p style="margin: 8px 0;"><em>En prenant soin de votre couteau, vous vous assurez qu'il reste un compagnon fiable et durable pour de nombreuses années.</em></p>
                     </div>
-                    
-                    <div class="mb-6">
-                        <h4 class="text-lg mb-2" style="color: var(--color-text);">Caractéristiques</h4>
-                        <ul class="space-y-2" style="color: var(--color-text);">
-                            <li class="flex items-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="var(--color-primary)">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span id="modal-steel">Acier : Aogami Super (carbone)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="var(--color-primary)">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span id="modal-wood">Manche : Bouleau stabilisé</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="var(--color-primary)">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span id="modal-dimensions">Dimensions : 22cm (lame 10cm)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="var(--color-primary)">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span id="modal-weight">Poids : 150g</span>
-                            </li>
-                        </ul>
+                </div>
+            </div>
+            
+            <div class="md:w-1/2">
+                <h3 id="modal-title" class="text-2xl mb-2" style="color: var(--color-text);">Puukko Traditionnel</h3>
+                <p id="modal-price" class="text-xl mb-4" style="color: var(--color-primary);">290€</p>
+                
+                <div class="mb-6">
+                    <h4 class="text-lg mb-2">Description</h4>
+                    <p id="modal-description" style="color: var(--color-text);">Couteau scandinave forgé à la main en acier carbone avec manche en bouleau massif. Lame de 10cm, longueur totale 22cm. Poids 150g.</p>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="text-lg mb-2" style="color: var(--color-text);">Caractéristiques</h4>
+                    <ul class="space-y-2" style="color: var(--color-text);">
+                        <li class="flex items-start">
+                            <span class="mr-2 mt-0.5 text-lg" style="color: var(--color-primary);">•</span>
+                            <span id="modal-steel">Acier : Aogami Super (carbone)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 mt-0.5 text-lg" style="color: var(--color-primary);">•</span>
+                            <span id="modal-wood">Manche : Bouleau stabilisé</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 mt-0.5 text-lg" style="color: var(--color-primary);">•</span>
+                            <span id="modal-dimensions">Dimensions : 22cm (lame 10cm)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 mt-0.5 text-lg" style="color: var(--color-primary);">•</span>
+                            <span id="modal-weight">Poids : 150g</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center rounded" style="border: 1px solid var(--color-primary); color: var(--color-text);">
+                        <button class="quantity-btn px-3 py-1 text-xl hover:opacity-80" data-action="decrease">-</button>
+                        <span id="quantity" class="px-3">1</span>
+                        <button class="quantity-btn px-3 py-1 text-xl hover:opacity-80" data-action="increase">+</button>
                     </div>
-                    
-                    <div class="flex items-center space-x-4">
-                        <div class="flex items-center rounded" style="border: 1px solid var(--color-primary); color: var(--color-text);">
-                            <button class="quantity-btn px-3 py-1 text-xl hover:opacity-80" data-action="decrease">-</button>
-                            <span id="quantity" class="px-3">1</span>
-                            <button class="quantity-btn px-3 py-1 text-xl hover:opacity-80" data-action="increase">+</button>
-                        </div>
-                        <button id="add-to-cart" class="flex-1 py-2 px-4 rounded transition hover:opacity-90" 
-                            style="background-color: var(--color-primary); color: #D9CBBA;">Ajouter au panier</button>
-                    </div>
+                    <button id="add-to-cart" class="flex-1 py-2 px-4 rounded transition hover:opacity-90" 
+                        style="background-color: var(--color-primary); color: #D9CBBA;">Ajouter au panier</button>
                 </div>
             </div>
         </div>
@@ -706,33 +732,6 @@
             <h3 class="text-xl mb-2" style="color: var(--color-text);">Commande validée</h3>
             <p class="mb-6" style="color: var(--color-text);">Merci pour votre achat. Nous avons reçu votre commande et vous contacterons sous peu.</p>
             <button id="close-success" class="px-6 py-2 rounded transition hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;">Fermer</button>
-        </div>
-    </div>
-
-    <!-- Popup d'avertissement pour l'acier carbone -->
-    <div id="carbon-warning-modal" class="modal fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center hidden">
-        <div class="rounded-lg p-8 max-w-lg" style="background-color: var(--color-bg); border: 2px solid #dc2626;">
-            <div class="flex items-center mb-4">
-                <div class="w-12 h-12 rounded-full flex items-center justify-center mr-4" style="background-color: #dc2626;">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold" style="color: #dc2626;">Avertissement important</h3>
-            </div>
-            <h4 class="text-lg mb-4" style="color: var(--color-text);">Entretien de la lame en acier 80CrV2</h4>
-            <div class="space-y-4 mb-6" style="color: var(--color-text);">
-                <p><strong>Contrairement aux aciers inoxydables</strong>, cet acier nécessite une attention particulière pour conserver ses qualités :</p>
-                <div class="pl-4">
-                    <p class="mb-2"><strong style="color: #dc2626;">Risque de rouille :</strong> L'acier 80CrV2 est sensible à l'humidité. Il est impératif d'essuyer la lame immédiatement après chaque usage et de la maintenir au sec pour prévenir l'apparition de rouille.</p>
-                    <p><strong style="color: var(--color-primary);">Patine naturelle :</strong> Avec le temps et l'usage, la lame va développer une patine naturelle. Cette coloration est tout à fait normale et ne compromet en rien la qualité de l'acier, elle agit même comme une protection supplémentaire contre la corrosion.</p>
-                </div>
-                <p class="italic">En prenant soin de votre couteau, vous vous assurez qu'il reste un compagnon fiable et durable pour de nombreuses années.</p>
-            </div>
-            <div class="flex gap-4">
-                <button id="close-warning" class="flex-1 py-2 px-4 rounded transition hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;">J'ai compris</button>
-                <button id="proceed-to-cart" class="flex-1 py-2 px-4 rounded transition hover:opacity-90" style="background-color: #16a34a; color: white;">Ajouter au panier</button>
-            </div>
         </div>
     </div>
 
@@ -870,8 +869,10 @@
         const quantityBtns = document.querySelectorAll('.quantity-btn');
         const addToCartBtn = document.getElementById('add-to-cart');
         
-        // Debug pour vérifier le chemin des images
-        console.log('Tentative de chargement d\'image:', 'assets/Photos couteaux/puukko1.jpg');
+        // Fonctionnalité d'agrandissement d'image
+        const imageZoomModal = document.getElementById('image-zoom-modal');
+        const zoomedImage = document.getElementById('zoomed-image');
+        const zoomCloseBtn = document.querySelector('.zoom-close-btn');
         
         // Sample product data (in a real app, this would come from a database)
         const products = {
@@ -972,7 +973,6 @@
                 images: [
                     "assets/Photos couteaux/Gamme Suminagashi/Kiritsuke-sum-1.jpeg",
                     "assets/Photos couteaux/Gamme Suminagashi/Kiritsuke-sum-2.jpeg",
-                    "assets/Photos couteaux/Gamme Suminagashi/Kiritsuke-sum-3.jpeg",
                     "assets/Photos couteaux/Gamme Suminagashi/Kiritsuke-sum-4.jpeg",
                     "assets/Photos couteaux/Gamme Suminagashi/Kiritsuke-sum-5.jpeg"
                 ]
@@ -1100,13 +1100,50 @@
         
         let currentProductId = null;
         
+        // Agrandir l'image principale au clic
+        modalImage.addEventListener('click', () => {
+            zoomedImage.src = modalImage.src;
+            imageZoomModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        // Fermer l'agrandissement
+        function closeImageZoom() {
+            imageZoomModal.classList.add('hidden');
+            document.body.style.overflow = 'hidden'; // Garde le scroll bloqué car le modal produit est toujours ouvert
+        }
+        
+        zoomCloseBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeImageZoom();
+        });
+        
+        imageZoomModal.addEventListener('click', (e) => {
+            if (e.target === imageZoomModal) {
+                closeImageZoom();
+            }
+        });
+        
+        // Permettre aux thumbnails d'être également cliquables pour agrandissement
+        function makeThumbnailsClickable() {
+            document.querySelectorAll('.thumbnail img').forEach(thumb => {
+                thumb.classList.add('image-clickable');
+                thumb.style.cursor = 'zoom-in';
+                thumb.title = 'Cliquez pour agrandir';
+                
+                thumb.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Empêche le changement d'image principale
+                    zoomedImage.src = thumb.src;
+                    imageZoomModal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+        }
+        
         viewDetailsBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 currentProductId = btn.dataset.product;
                 const product = products[currentProductId];
-
-                // Debug
-                console.log('Ouverture modal pour produit:', currentProductId, product);
 
                 // Remplir les images du carrousel
                 const thumbnailContainer = document.getElementById('thumbnail-container');
@@ -1128,7 +1165,7 @@
                 // Mettre à jour l'image principale
                 modalImage.src = product.images[0];
 
-                // ...texte comme avant...
+                // Remplir les détails du produit
                 modalTitle.textContent = product.title;
                 modalPrice.textContent = product.price;
                 modalDescription.textContent = product.description;
@@ -1137,6 +1174,14 @@
                 modalDimensions.textContent = product.dimensions;
                 modalWeight.textContent = product.weight;
                 quantityElement.textContent = '1';
+
+                // Afficher ou cacher l'avertissement pour le Puukko Carbone
+                const carbonWarning = document.getElementById('carbon-warning');
+                if (currentProductId === '5') {
+                    carbonWarning.classList.remove('hidden');
+                } else {
+                    carbonWarning.classList.add('hidden');
+                }
 
                 productModal.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
@@ -1201,16 +1246,7 @@
         addToCartBtn.addEventListener('click', () => {
             if (!currentProductId) return;
             
-            // Si c'est le Puukko Carbone (produit 5), afficher l'avertissement
-            if (currentProductId === '5') {
-                pendingCarbonProduct = {
-                    id: currentProductId,
-                    quantity: parseInt(quantityElement.textContent)
-                };
-                carbonWarningModal.classList.remove('hidden');
-                return;
-            }
-            
+            // Suppression de la logique du popup d'avertissement carbone car l'info est maintenant dans la description
             const quantity = parseInt(quantityElement.textContent);
             const product = products[currentProductId];
             const price = parseInt(product.price.replace('€', ''));
@@ -1368,7 +1404,6 @@
         // Carrousel functionality
         const carouselNavPrev = document.querySelector('.carousel-nav.prev');
         const carouselNavNext = document.querySelector('.carousel-nav.next');
-        const thumbnails = document.querySelectorAll('.thumbnail');
         let currentImageIndex = 0;
 
         function updateCarousel(index) {
@@ -1379,9 +1414,9 @@
             // Mettre à jour les thumbnails actifs
             window.thumbnails.forEach((thumb, i) => {
                 if (i === index) {
-                    thumb.classList.add('active', 'ring-2', 'ring-red-700');
+                    thumb.classList.add('active');
                 } else {
-                    thumb.classList.remove('active', 'ring-2', 'ring-red-700');
+                    thumb.classList.remove('active');
                 }
             });
 
@@ -1400,13 +1435,19 @@
             updateCarousel(newIndex);
         });
 
-        thumbnails.forEach((thumbnail, index) => {
-            thumbnail.addEventListener('click', () => {
-                updateCarousel(index);
-            });
+        // Gestion du clic sur les thumbnails pour changer l'image principale
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.thumbnail') && !e.target.classList.contains('image-clickable')) {
+                const thumbs = Array.from(window.thumbnails);
+                const clickedThumb = e.target.closest('.thumbnail');
+                const idx = thumbs.findIndex(thumb => thumb === clickedThumb);
+                if (idx !== -1) {
+                    updateCarousel(idx);
+                }
+            }
         });
 
-        // Support des touches clavier pour le carrousel
+        // Support des touches clavier
         document.addEventListener('keydown', (e) => {
             if (!productModal.classList.contains('hidden')) {
                 if (e.key === 'ArrowLeft') {
@@ -1415,124 +1456,10 @@
                     carouselNavNext.click();
                 }
             }
-        });
-
-        // Réinitialiser le carrousel quand le modal est ouvert
-        viewDetailsBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                currentImageIndex = 0;
-                updateCarousel(0);
-            });
-        });
-
-        // Carrousel : Mettre à jour les thumbnails à chaque ouverture de modal
-        thumbnailContainer.addEventListener('click', (e) => {
-            const thumbs = Array.from(window.thumbnails);
-            const idx = thumbs.findIndex(thumb => thumb.contains(e.target));
-            if (idx !== -1) {
-                updateCarousel(idx);
-            }
-        });
-
-        // Fonctionnalité d'agrandissement d'image
-        const imageZoomModal = document.getElementById('image-zoom-modal');
-        const zoomedImage = document.getElementById('zoomed-image');
-        const modalImageElement = document.getElementById('modal-image');
-        const zoomCloseBtn = document.querySelector('.zoom-close-btn');
-        
-        // Agrandir l'image principale au clic
-        modalImageElement.addEventListener('click', () => {
-            zoomedImage.src = modalImageElement.src;
-            imageZoomModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        });
-        
-        // Fermer l'agrandissement
-        function closeImageZoom() {
-            imageZoomModal.classList.add('hidden');
-            document.body.style.overflow = 'hidden'; // Garde le scroll bloqué car le modal produit est toujours ouvert
-        }
-        
-        zoomCloseBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            closeImageZoom();
-        });
-        
-        imageZoomModal.addEventListener('click', (e) => {
-            if (e.target === imageZoomModal) {
-                closeImageZoom();
-            }
-        });
-        
-        // Support des touches clavier pour fermer l'agrandissement
-        document.addEventListener('keydown', (e) => {
+            
             if (!imageZoomModal.classList.contains('hidden') && e.key === 'Escape') {
                 closeImageZoom();
             }
-        });
-        
-        // Permettre aux thumbnails d'être également cliquables pour agrandissement
-        function makeThumbnailsClickable() {
-            document.querySelectorAll('.thumbnail img').forEach(thumb => {
-                thumb.classList.add('image-clickable');
-                thumb.style.cursor = 'zoom-in';
-                thumb.title = 'Cliquez pour agrandir';
-                
-                thumb.addEventListener('click', (e) => {
-                    e.stopPropagation(); // Empêche le changement d'image principale
-                    zoomedImage.src = thumb.src;
-                    imageZoomModal.classList.remove('hidden');
-                    document.body.style.overflow = 'hidden';
-                });
-            });
-        }
-        
-        // Mise à jour de la fonction d'ouverture de modal pour inclure les thumbnails cliquables
-        viewDetailsBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                currentProductId = btn.dataset.product;
-                const product = products[currentProductId];
-
-                // Debug
-                console.log('Ouverture modal pour produit:', currentProductId, product);
-
-                // Remplir les images du carrousel
-                const thumbnailContainer = document.getElementById('thumbnail-container');
-                thumbnailContainer.innerHTML = '';
-                product.images.forEach((img, i) => {
-                    const div = document.createElement('div');
-                    div.className = 'h-16 rounded overflow-hidden cursor-pointer thumbnail' + (i === 0 ? ' active' : '');
-                    div.style.backgroundColor = 'var(--color-bg)';
-                    div.innerHTML = `<img src="${img}" alt="" class="w-full h-full object-cover" onerror="console.log('Erreur chargement:', this.src)">`;
-                    thumbnailContainer.appendChild(div);
-                });
-
-                // Mettre à jour les références des thumbnails
-                window.thumbnails = thumbnailContainer.querySelectorAll('.thumbnail');
-                
-                // Rendre les thumbnails cliquables pour agrandissement
-                makeThumbnailsClickable();
-
-                // Mettre à jour l'image principale
-                modalImage.src = product.images[0];
-
-                // ...texte comme avant...
-                modalTitle.textContent = product.title;
-                modalPrice.textContent = product.price;
-                modalDescription.textContent = product.description;
-                modalSteel.textContent = product.steel;
-                modalWood.textContent = product.wood;
-                modalDimensions.textContent = product.dimensions;
-                modalWeight.textContent = product.weight;
-                quantityElement.textContent = '1';
-
-                productModal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-
-                // Réinitialiser le carrousel
-                currentImageIndex = 0;
-                updateCarousel(0);
-            });
         });
     </script>
 </body>
