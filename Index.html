@@ -76,74 +76,66 @@
             transition: opacity 0.3s ease;
         }
         .modal-content {
-            max-height: 90vh;
+            max-height: 95vh;
             overflow-y: auto;
-        }
-        .workshop-image {
-            transition: transform 0.3s ease;
-        }
-        .workshop-image:hover {
-            transform: scale(1.03);
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--color-bg);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--color-primary);
-            opacity: 0.7;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--color-primary);
-            opacity: 1;
+            width: 95vw;
+            max-width: 1200px;
         }
         
-        .carousel-nav {
-            opacity: 0;
-            transition: opacity 0.3s ease;
+        /* Styles pour l'agrandissement d'image */
+        .image-zoom-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
         }
         
-        .modal-content:hover .carousel-nav {
-            opacity: 1;
+        .image-zoom-content {
+            max-width: 95vw;
+            max-height: 95vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
         }
         
-        .thumbnail {
-            transition: all 0.3s ease;
+        .image-clickable {
+            cursor: zoom-in;
+            transition: transform 0.2s ease;
         }
         
-        .thumbnail.active {
-            transform: scale(1.05);
-            border: 2px solid var(--color-primary);
-        }
-
-        /* Ajustements globaux des couleurs */
-        svg[stroke="currentColor"] {
-            stroke: var(--color-text);
-        }
-
-        .border-gray-700, .border-gray-800, .border-gray-900 {
-            border-color: var(--color-primary);
-            opacity: 0.3;
+        .image-clickable:hover {
+            transform: scale(1.02);
         }
         
-        [class*="bg-gray-"], [class*="bg-red-"] {
-            background-color: var(--color-bg);
+        .zoom-close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
         }
-
-        [class*="text-gray-"], [class*="text-red-"], .text-white {
-            color: var(--color-text);
+        
+        .zoom-close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
         }
-
-        [class*="hover\\:bg-red-"]:hover {
-            background-color: var(--color-primary);
-            opacity: 0.9;
-        }
-
-        [class*="hover\\:text-red-"]:hover {
-            color: var(--color-primary);
-        }
+        
+        /* ...existing styles... */
     </style>
 </head>
 <body class="min-h-screen">
@@ -208,46 +200,183 @@
                 <button class="category-btn px-6 py-2 transition hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;" data-category="all">Tous</button>
                 <button class="category-btn px-6 py-2 transition hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;" data-category="puukko">Puukko</button>
                 <button class="category-btn px-6 py-2 transition hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;" data-category="pliant">Pliants</button>
-                <button class="category-btn px-6 py-2 transition hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;" data-category="cuisine">Cuisine</button>
+                <button id="cuisine-main-btn" class="category-btn px-6 py-2 transition hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;" data-category="cuisine">Cuisine</button>
                 <button class="category-btn px-6 py-2 transition hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;" data-category="accessoire">Accessoires</button>
             </div>
+            <!-- Sous-catégories cuisine, cachées par défaut et sur une nouvelle ligne -->
+            <div id="cuisine-subcategories" class="hidden flex justify-center gap-2 mb-4">
+                <button class="subcategory-btn px-4 py-2 transition hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;" data-subcategory="cuisine-damas">Gamme Suminagashi</button>
+                <button class="subcategory-btn px-4 py-2 transition hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;" data-subcategory="cuisine-carbone">Gamme Tsuchime</button>
+            </div>
+            <div id="subcategory-info" class="max-w-2xl mx-auto mb-8 text-center text-base" style="color: var(--color-text); display:none;"></div>
             
             <!-- Products Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Product 1 -->
-                <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="puukko">
+                <!-- Gamme Suminagashi Products -->
+                <!-- Honesuki Suminagashi -->
+                <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="cuisine" data-subcategory="cuisine-damas">
                     <div class="h-64 overflow-hidden bg-gray-900">
+                        <img src="assets/Photos couteaux/Gamme Suminagashi/Honesuki-sum-1.jpeg" alt="Honesuki Suminagashi" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
-                        <h3 class="text-xl mb-2" style="color: #FFFFFF;">Puukko Traditionnel</h3>
-                        <p class="mb-4" style="color: #FFFFFF;">Couteau scandinave en acier carbone</p>
-                        <p class="text-lg" style="color: var(--color-primary);">290€</p>
-                    </div>
-                    <div class="product-overlay absolute inset-0 flex items-center justify-center opacity-0 transition">
-                <button class="view-details-btn px-6 py-2 transition hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="1">Voir détails</button>
-            </div>
-        </div>                <!-- Product 2 -->
-                <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="cuisine">
-                    <div class="h-64 overflow-hidden bg-gray-900">
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-xl mb-2" style="color: #FFFFFF;">Santoku Japonais</h3>
-                        <p class="mb-4" style="color: #FFFFFF;">Couteau de cuisine polyvalent</p>
-                        <p class="text-lg" style="color: var(--color-primary);">350€</p>
+                        <h3 class="text-xl mb-2" style="color: #FFFFFF;">Honesuki Suminagashi</h3>
+                        <p class="text-lg font-bold" style="color: #D9CBBA;">140€</p>
                     </div>
                     <div class="absolute inset-0 flex items-center justify-center">
-                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="2">Voir détails</button>
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="7">Voir détails</button>
                     </div>
                 </div>
-                
+
+                <!-- Kiritsuke Suminagashi -->
+                <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="cuisine" data-subcategory="cuisine-damas">
+                    <div class="h-64 overflow-hidden bg-gray-900">
+                        <img src="assets/Photos couteaux/Gamme Suminagashi/Kiritsuke-sum-1.jpeg" alt="Kiritsuke Suminagashi" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl mb-2" style="color: #FFFFFF;">Kiritsuke Suminagashi</h3>
+                        <p class="text-lg font-bold" style="color: #D9CBBA;">190€</p>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="8">Voir détails</button>
+                    </div>
+                </div>
+
+                <!-- Kudamono Suminagashi -->
+                <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="cuisine" data-subcategory="cuisine-damas">
+                    <div class="h-64 overflow-hidden bg-gray-900">
+                        <img src="assets/Photos couteaux/Gamme Suminagashi/Kudamono-sum-1.jpeg" alt="Kudamono" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl mb-2" style="color: #FFFFFF;">Kudamono</h3>
+                        <p class="text-lg font-bold" style="color: #D9CBBA;">140€</p>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="9">Voir détails</button>
+                    </div>
+                </div>
+
+                <!-- Nakiri Suminagashi -->
+                <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="cuisine" data-subcategory="cuisine-damas">
+                    <div class="h-64 overflow-hidden bg-gray-900">
+                        <img src="assets/Photos couteaux/Gamme Suminagashi/Nakiri-sum-1.jpeg" alt="Nakiri" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl mb-2" style="color: #FFFFFF;">Nakiri</h3>
+                        <p class="text-lg font-bold" style="color: #D9CBBA;">190€</p>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="10">Voir détails</button>
+                    </div>
+                </div>
+
+                <!-- Santoku Suminagashi -->
+                <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="cuisine" data-subcategory="cuisine-damas">
+                    <div class="h-64 overflow-hidden bg-gray-900">
+                        <img src="assets/Photos couteaux/Gamme Suminagashi/Santoku-sum-1.jpeg" alt="Santoku" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl mb-2" style="color: #FFFFFF;">Santoku</h3>
+                        <p class="text-lg font-bold" style="color: #D9CBBA;">210€</p>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="11">Voir détails</button>
+                    </div>
+                </div>
+
+                <!-- Gamme Tsuchime Products -->
+                <!-- Bunka Tsuchime -->
+                <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="cuisine" data-subcategory="cuisine-carbone">
+                    <div class="h-64 overflow-hidden bg-gray-900">
+                        <img src="assets/Photos couteaux/Gamme Tsuchime/bunka-tsu-1.jpeg" alt="Bunka" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl mb-2" style="color: #FFFFFF;">Bunka</h3>
+                        <p class="text-lg font-bold" style="color: #D9CBBA;">160€</p>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="12">Voir détails</button>
+                    </div>
+                </div>
+
+                <!-- Honesuki Tsuchime -->
+                <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="cuisine" data-subcategory="cuisine-carbone">
+                    <div class="h-64 overflow-hidden bg-gray-900">
+                        <img src="assets/Photos couteaux/Gamme Tsuchime/honesuki-tsu-1.jpeg" alt="Honesuki" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl mb-2" style="color: #FFFFFF;">Honesuki</h3>
+                        <p class="text-lg font-bold" style="color: #D9CBBA;">120€</p>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="13">Voir détails</button>
+                    </div>
+                </div>
+
+                <!-- Kiritsuke Tsuchime -->
+                <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="cuisine" data-subcategory="cuisine-carbone">
+                    <div class="h-64 overflow-hidden bg-gray-900">
+                        <img src="assets/Photos couteaux/Gamme Tsuchime/kiritsuke-tsu-1.jpeg" alt="Kiritsuke" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl mb-2" style="color: #FFFFFF;">Kiritsuke</h3>
+                        <p class="text-lg font-bold" style="color: #D9CBBA;">160€</p>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="14">Voir détails</button>
+                    </div>
+                </div>
+
+                <!-- Nakiri Tsuchime -->
+                <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="cuisine" data-subcategory="cuisine-carbone">
+                    <div class="h-64 overflow-hidden bg-gray-900">
+                        <img src="assets/Photos couteaux/Gamme Tsuchime/Nakiri-tsu-1.jpeg" alt="Nakiri" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl mb-2" style="color: #FFFFFF;">Nakiri</h3>
+                        <p class="text-lg font-bold" style="color: #D9CBBA;">160€</p>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="15">Voir détails</button>
+                    </div>
+                </div>
+
+                <!-- Puukko Products -->
+                <!-- Puukko Inox -->
+                <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="puukko">
+                    <div class="h-64 overflow-hidden bg-gray-900">
+                        <img src="assets/Photos couteaux/Puukko/Puukko-vio-1.jpeg" alt="Puukko Inox" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl mb-2" style="color: #FFFFFF;">Puukko Inox</h3>
+                        <p class="text-lg font-bold" style="color: #D9CBBA;">140€</p>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="1">Voir détails</button>
+                    </div>
+                </div>
+
+                <!-- Puukko Carbone -->
+                <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="puukko">
+                    <div class="h-64 overflow-hidden bg-gray-900">
+                        <img src="assets/Photos couteaux/Puukko/Puukko-vert-1.jpeg" alt="Puukko Carbone" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl mb-2" style="color: #FFFFFF;">Puukko Carbone</h3>
+                        <p class="text-lg font-bold" style="color: #D9CBBA;">110€</p>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="5">Voir détails</button>
+                    </div>
+                </div>
+
                 <!-- Product 3 -->
                 <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="pliant">
                     <div class="h-64 overflow-hidden bg-gray-900">
+                        <img src="assets/Photos couteaux/Puukko/pliant1.jpg" alt="Pliant Artisanal" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl mb-2" style="color: #FFFFFF;">Pliant Artisanal</h3>
-                        <p class="mb-4" style="color: #FFFFFF;">Couteau de poche en acier damas</p>
-                        <p class="text-lg" style="color: var(--color-primary);">420€</p>
+                        <p class="text-lg font-bold" style="color: #D9CBBA;">420€</p>
                     </div>
                     <div class="absolute inset-0 flex items-center justify-center">
                         <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;" data-product="3">Voir détails</button>
@@ -257,42 +386,14 @@
                 <!-- Product 4 -->
                 <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="accessoire">
                     <div class="h-64 overflow-hidden bg-gray-900">
+                        <img src="assets/Photos couteaux/Accessoires/etui1.jpg" alt="Étui en Cuir" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl mb-2" style="color: #FFFFFF;">Étui en Cuir</h3>
-                        <p class="mb-4" style="color: #FFFFFF;">Étui sur mesure pour couteau</p>
-                        <p class="text-lg" style="color: var(--color-primary);">120€</p>
+                        <p class="text-lg font-bold" style="color: #D9CBBA;">120€</p>
                     </div>
                     <div class="absolute inset-0 flex items-center justify-center">
                         <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="4">Voir détails</button>
-                    </div>
-                </div>
-                
-                <!-- Product 5 -->
-                <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="puukko">
-                    <div class="h-64 overflow-hidden bg-gray-900">
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-xl mb-2" style="color: #FFFFFF;">Puukko de Chasse</h3>
-                        <p class="mb-4" style="color: #FFFFFF;">Couteau robuste avec manche en bouleau</p>
-                        <p class="text-lg" style="color: var(--color-primary);">320€</p>
-                    </div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="5">Voir détails</button>
-                    </div>
-                </div>
-                
-                <!-- Product 6 -->
-                <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="cuisine">
-                    <div class="h-64 overflow-hidden bg-gray-900">
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-xl mb-2" style="color: #FFFFFF;">Couteau à Découper</h3>
-                        <p class="mb-4" style="color: #FFFFFF;">Lame forgée à la main</p>
-                        <p class="text-lg" style="color: var(--color-primary);">380€</p>
-                    </div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <button class="view-details-btn px-6 py-2 transition opacity-0 hover:opacity-90" style="background-color: var(--color-primary); color: var(--color-bg);" data-product="6">Voir détails</button>
                     </div>
                 </div>
             </div>
@@ -464,7 +565,7 @@
 
     <!-- Product Modal -->
 <div id="product-modal" class="modal fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center hidden">
-    <div class="modal-content relative rounded-lg w-11/12 md:w-3/4 lg:w-2/3 xl:w-1/2 p-6" style="background-color: var(--color-bg);">
+    <div class="modal-content relative rounded-lg p-6" style="background-color: var(--color-bg);">
         <button id="close-modal" class="absolute top-4 right-4 z-50 hover:opacity-80" style="color: var(--color-text);">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -475,7 +576,7 @@
                 <div class="md:w-1/2">
                     <div class="relative">
                         <div class="h-64 md:h-80 rounded overflow-hidden mb-4" style="background-color: var(--color-dark);">
-                            <img id="modal-image" src="" alt="" class="w-full h-full object-contain">
+                            <img id="modal-image" src="" alt="" class="w-full h-full object-contain image-clickable" title="Cliquez pour agrandir">
                         </div>
                         <button class="carousel-nav prev absolute left-0 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 p-2 rounded-r" style="color: var(--color-light);">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -488,19 +589,8 @@
                             </svg>
                         </button>
                     </div>
-                    <div id="thumbnail-container" class="grid grid-cols-4 gap-2">
-                        <div class="h-16 rounded overflow-hidden cursor-pointer thumbnail active" style="background-color: var(--color-bg);">
-                            <img src="https://images.unsplash.com/photo-1589476993333-557386937aea?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="" class="w-full h-full object-cover">
-                        </div>
-                        <div class="h-16 rounded overflow-hidden cursor-pointer thumbnail" style="background-color: var(--color-bg);">
-                            <img src="https://images.unsplash.com/photo-1603362858665-d3e9e56a6e24?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="" class="w-full h-full object-cover">
-                        </div>
-                        <div class="h-16 rounded overflow-hidden cursor-pointer thumbnail" style="background-color: var(--color-bg);">
-                            <img src="https://images.unsplash.com/photo-1602826347632-fc49a8678310?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="" class="w-full h-full object-cover">
-                        </div>
-                        <div class="h-16 rounded overflow-hidden cursor-pointer thumbnail" style="background-color: var(--color-bg);">
-                            <img src="https://images.unsplash.com/photo-1622372738946-62e02505feb3?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="" class="w-full h-full object-cover">
-                        </div>
+                    <div id="thumbnail-container" class="grid grid-cols-5 gap-2">
+                        <!-- Will be filled dynamically with 5 images -->
                     </div>
                 </div>
                 
@@ -557,6 +647,16 @@
         </div>
     </div>
 
+    <!-- Modal d'agrandissement d'image -->
+    <div id="image-zoom-modal" class="image-zoom-modal hidden">
+        <button class="zoom-close-btn" title="Fermer">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </button>
+    <img id="zoomed-image" class="image-zoom-content" src="" alt="">
+    </div>
+
     <!-- Cart Modal -->
     <div id="cart-modal" class="modal fixed inset-0 bg-black bg-opacity-80 z-50 hidden">
         <div class="absolute right-0 top-0 h-full w-full md:w-1/2 lg:w-1/3 overflow-y-auto" style="background-color: var(--color-bg);">
@@ -609,6 +709,33 @@
         </div>
     </div>
 
+    <!-- Popup d'avertissement pour l'acier carbone -->
+    <div id="carbon-warning-modal" class="modal fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center hidden">
+        <div class="rounded-lg p-8 max-w-lg" style="background-color: var(--color-bg); border: 2px solid #dc2626;">
+            <div class="flex items-center mb-4">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center mr-4" style="background-color: #dc2626;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold" style="color: #dc2626;">Avertissement important</h3>
+            </div>
+            <h4 class="text-lg mb-4" style="color: var(--color-text);">Entretien de la lame en acier 80CrV2</h4>
+            <div class="space-y-4 mb-6" style="color: var(--color-text);">
+                <p><strong>Contrairement aux aciers inoxydables</strong>, cet acier nécessite une attention particulière pour conserver ses qualités :</p>
+                <div class="pl-4">
+                    <p class="mb-2"><strong style="color: #dc2626;">Risque de rouille :</strong> L'acier 80CrV2 est sensible à l'humidité. Il est impératif d'essuyer la lame immédiatement après chaque usage et de la maintenir au sec pour prévenir l'apparition de rouille.</p>
+                    <p><strong style="color: var(--color-primary);">Patine naturelle :</strong> Avec le temps et l'usage, la lame va développer une patine naturelle. Cette coloration est tout à fait normale et ne compromet en rien la qualité de l'acier, elle agit même comme une protection supplémentaire contre la corrosion.</p>
+                </div>
+                <p class="italic">En prenant soin de votre couteau, vous vous assurez qu'il reste un compagnon fiable et durable pour de nombreuses années.</p>
+            </div>
+            <div class="flex gap-4">
+                <button id="close-warning" class="flex-1 py-2 px-4 rounded transition hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;">J'ai compris</button>
+                <button id="proceed-to-cart" class="flex-1 py-2 px-4 rounded transition hover:opacity-90" style="background-color: #16a34a; color: white;">Ajouter au panier</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -633,18 +760,56 @@
         // Product filtering
         const categoryBtns = document.querySelectorAll('.category-btn');
         const productCards = document.querySelectorAll('.product-card');
-        
+        const cuisineMainBtn = document.getElementById('cuisine-main-btn');
+        const cuisineSubcats = document.getElementById('cuisine-subcategories');
+        const subcategoryBtns = document.querySelectorAll('.subcategory-btn');
+        const subcategoryInfo = document.getElementById('subcategory-info');
+
+        // Texte explicatif pour chaque sous-catégorie
+        const subcategoryTexts = {
+            'cuisine-damas': `<strong>Gamme Suminagashi</strong><br><br>
+            Cet acier damas de 67 couches est nommé Suminagashi, un terme qui désigne tout d'abord la technique du papier marbré japonais, un art décoratif datant du 12e siècle.<br><br>
+            L'acier sandwich Suminagashi VG10 est constitué d'une âme centrale en acier VG10 recouverte de chaque côté par 33 couches d'acier inoxydable différentes.<br><br>
+            L'acier VG10 est inoxydable, résistant à l'usure et à la corrosion. Sa particularité réside dans sa teneur en carbone, qui s'élève à 1 %, alors qu'elle est de 0,5 % pour un acier basique. Cela implique donc une solidité accrue, ainsi qu'une résistance au passage du temps et à l'humidité, malgré un taux de carbone élevé.`,
+            'cuisine-carbone': `<strong>Gamme Tsuchime</strong><br><br>
+            La finition Tsuchime 槌目 signifie "marques de marteau" en japonais, de par les traces visibles que laisse cette pratique sur le produit fini. Le martelage des lames de couteau de cuisine remonte à plusieurs siècles, et trouve son origine dans les techniques traditionnelles de forge japonaise.<br><br>
+            Connu sous le nom de son métallier suédois Sandvik, aujourd'hui Alleima, l'acier 14C28N porte une réputation d'excellence. Introduit en 2008 par la métallurgie, cet alliage inoxydable doit ses performances à sa composition et à son procédé de fabrication. Chrome, carbone, manganèse, silicium, azote, phosphore et soufre forment une équipe imbattable au palmarès de la dureté et de la résistance à la corrosion. Son tranchant exceptionnel, son nettoyage aisé et sa facilité d'affûtage en font la star de la coutellerie haut de gamme.`
+        };
+
+        // Affichage des sous-catégories au clic sur "Cuisine"
+        cuisineMainBtn.addEventListener('click', () => {
+            // Affiche les sous-catégories
+            cuisineSubcats.classList.remove('hidden');
+            // Affiche tous les produits cuisine
+            productCards.forEach(card => {
+                if (card.dataset.category === 'cuisine') {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            // Reset active classes
+            categoryBtns.forEach(b => {
+                b.classList.remove('active');
+            });
+            cuisineMainBtn.classList.add('active');
+            // Masque le texte d'info
+            subcategoryInfo.style.display = 'none';
+            subcategoryInfo.innerHTML = '';
+        });
+
+        // Filtrage classique pour les autres catégories
         categoryBtns.forEach(btn => {
+            if (btn === cuisineMainBtn) return; // déjà géré
             btn.addEventListener('click', () => {
-                // Update active button
+                // Cache les sous-catégories
+                cuisineSubcats.classList.add('hidden');
+                // Reset active classes
                 categoryBtns.forEach(b => {
-                    b.style.borderColor = 'var(--color-light)';
-                    b.style.color = 'var(--color-light)';
+                    b.classList.remove('active');
                 });
-                btn.style.borderColor = 'var(--color-primary)';
-                btn.style.color = 'var(--color-primary)';
-                
-                // Filter products
+                btn.classList.add('active');
+                // Filtre
                 const category = btn.dataset.category;
                 productCards.forEach(card => {
                     if (category === 'all' || card.dataset.category === category) {
@@ -653,6 +818,39 @@
                         card.classList.add('hidden');
                     }
                 });
+                // Masque le texte d'info
+                subcategoryInfo.style.display = 'none';
+                subcategoryInfo.innerHTML = '';
+            });
+        });
+
+        // Gestion des sous-catégories cuisine
+        subcategoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Maintient le bouton cuisine actif
+                categoryBtns.forEach(b => {
+                    b.classList.remove('active');
+                });
+                cuisineMainBtn.classList.add('active');
+                
+                // Reset subcategory active classes
+                subcategoryBtns.forEach(b => {
+                    b.classList.remove('active');
+                });
+                btn.classList.add('active');
+                
+                // Filtre
+                const subcat = btn.dataset.subcategory;
+                productCards.forEach(card => {
+                    if (card.dataset.subcategory === subcat) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+                // Affiche le texte d'info
+                subcategoryInfo.innerHTML = subcategoryTexts[subcat] || '';
+                subcategoryInfo.style.display = 'block';
             });
         });
         
@@ -672,67 +870,231 @@
         const quantityBtns = document.querySelectorAll('.quantity-btn');
         const addToCartBtn = document.getElementById('add-to-cart');
         
+        // Debug pour vérifier le chemin des images
+        console.log('Tentative de chargement d\'image:', 'assets/Photos couteaux/puukko1.jpg');
+        
         // Sample product data (in a real app, this would come from a database)
         const products = {
             1: {
-                title: "Puukko Traditionnel",
-                price: "290€",
-                description: "Couteau scandinave forgé à la main en acier carbone avec manche en bouleau massif. Lame de 10cm, longueur totale 22cm. Poids 150g.",
-                steel: "Acier : Aogami Super (carbone)",
-                wood: "Manche : Bouleau stabilisé",
-                dimensions: "Dimensions : 22cm (lame 10cm)",
-                weight: "Poids : 150g",
-                image: "https://images.unsplash.com/photo-1589476993333-557386937aea?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-            },
-            2: {
-                title: "Santoku Japonais",
-                price: "350€",
-                description: "Couteau de cuisine japonais polyvalent avec lame en acier damas et manche en ébène. Lame de 17cm, longueur totale 30cm. Poids 180g.",
-                steel: "Acier : Damas 67 couches",
-                wood: "Manche : Ébène et laiton",
-                dimensions: "Dimensions : 30cm (lame 17cm)",
-                weight: "Poids : 180g",
-                image: "https://images.unsplash.com/photo-1603362858665-d3e9e56a6e24?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                title: "Puukko Inox",
+                price: "140€",
+                description: "L'acier X50CrMoV15 présente des qualités inhérentes à une lame destinée à durer. Comme souvent chez les aciers efficaces, il se distingue par trois atouts :\n• Une teneur en chrome exceptionnelle, ce qui en fait un acier inox de référence.\n• Un apport en molybdène qui renforce la résistance à la corrosion déjà élevée.\n• Une touche de vanadium bienvenue qui renforce les effets du carbone et assouplit la lame.\n\nGrâce à ces trois caractéristiques, le X50CrMoV15 est un acier extrêmement résistant à la corrosion et aux chocs.",
+                steel: "Lame : X50CrMov15",
+                wood: "Manche : Laiton, Juma Gem violet, Bois de Palmier (Cocos nucifera) Bali, Ivoire de substitution : Elforyn Super Tusk",
+                dimensions: "Dimensions : Long. 242 mm • lame 125 mm • Larg. 30 mm",
+                weight: "Poids : 138 g",
+                image: "assets/Photos couteaux/Puukko/Puukko-vio-1.jpeg",
+                images: [
+                    "assets/Photos couteaux/Puukko/Puukko-vio-1.jpeg",
+                    "assets/Photos couteaux/Puukko/Puukko-vio-2.jpeg", 
+                    "assets/Photos couteaux/Puukko/Puukko-vio-3.jpeg",
+                    "assets/Photos couteaux/Puukko/Puukko-vio-4.jpeg",
+                    "assets/Photos couteaux/Puukko/Puukko-vio-5.jpeg"
+                ]
             },
             3: {
                 title: "Pliant Artisanal",
                 price: "420€",
-                description: "Couteau pliant de poche avec lame en acier damas et plaquettes en micarta. Mécanisme de verrouillage robuste. Longueur ouvert 18cm.",
-                steel: "Acier : Damas 1095/15N20",
-                wood: "Plaquettes : Micarta noir",
+                description: "Couteau pliant de poche avec lame en acier damas et plaquettes en micarta. Mécanisme de verrouillage liner lock robuste pour une utilisation quotidienne.",
+                steel: "Acier : Damas 1095/15N20 - forge artisanale",
+                wood: "Plaquettes : Micarta noir canvas",
                 dimensions: "Dimensions : 10cm fermé, 18cm ouvert",
                 weight: "Poids : 120g",
-                image: "https://images.unsplash.com/photo-1602826347632-fc49a8678310?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                image: "assets/Photos couteaux/Puukko/pliant1.jpg",
+                images: [
+                    "assets/Photos couteaux/Puukko/pliant1.jpg",
+                    "assets/Photos couteaux/Puukko/pliant2.jpg",
+                    "assets/Photos couteaux/Puukko/pliant3.jpg",
+                    "assets/Photos couteaux/Puukko/pliant4.jpg",
+                    "assets/Photos couteaux/Puukko/pliant5.jpg"
+                ]
             },
             4: {
-                title: "Étui en Cuir",
+                title: "Étui en Cuir Premium",
                 price: "120€",
-                description: "Étui sur mesure en cuir pleine fleur végétal tanné, fabriqué à la main pour protéger votre couteau. Disponible en différentes tailles.",
-                steel: "Matériau : Cuir pleine fleur",
-                wood: "Couleur : Brun naturel",
-                dimensions: "Dimensions : Sur mesure",
-                weight: "Poids : Variable selon taille",
-                image: "https://images.unsplash.com/photo-1618941719973-6a6d8c5f4a1c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                description: "Étui sur mesure en cuir pleine fleur végétal tanné français. Cousu main avec fil de lin ciré, finition à la cire d'abeille. Protection optimale pour vos couteaux.",
+                steel: "Matériau : Cuir pleine fleur français",
+                wood: "Couleur : Brun havane naturel",
+                dimensions: "Dimensions : Sur mesure selon couteau",
+                weight: "Poids : Variable (80-150g)",
+                image: "assets/Photos couteaux/Accessoires/etui1.jpg",
+                images: [
+                    "assets/Photos couteaux/Accessoires/etui1.jpg",
+                    "assets/Photos couteaux/Accessoires/etui2.jpg",
+                    "assets/Photos couteaux/Accessoires/etui3.jpg",
+                    "assets/Photos couteaux/Accessoires/etui4.jpg",
+                    "assets/Photos couteaux/Accessoires/etui5.jpg"
+                ]
             },
             5: {
-                title: "Puukko de Chasse",
-                price: "320€",
-                description: "Couteau robuste pour la chasse avec lame épaisse en acier carbone et manche en bouleau stabilisé. Lame de 12cm, longueur totale 25cm.",
-                steel: "Acier : 80CrV2",
-                wood: "Manche : Bouleau stabilisé rouge",
-                dimensions: "Dimensions : 25cm (lame 12cm)",
-                weight: "Poids : 200g",
-                image: "https://images.unsplash.com/photo-1622372738946-62e02505feb3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                title: "Puukko Carbone",
+                price: "110€",
+                description: "L'acier au carbone 80CrV2 est très apprécié pour la fabrication de lames de couteaux. C'est une nuance adaptée à la fabrication de couteaux Outdoor ou utilitaires en carbone. On la retrouve d'ailleurs assez couramment dans le nord de l'Europe pour fabriquer le Puuko, un couteau utilitaire simple et robuste.",
+                steel: "Lame : 80CrV2",
+                wood: "Manche : Laiton, Juma Gem violet, Bouleau madré de Carélie (Betula pendula) Finlande, Padouk (Pterocarpus soyauxii) Afrique, Ivoire de substitution : Elforyn Super Tusk",
+                dimensions: "Dimensions : Long. 213 mm • lame 92 mm • Larg. 27 mm",
+                weight: "Poids : 109 g",
+                image: "assets/Photos couteaux/Puukko/Puukko-vert-1.jpeg",
+                images: [
+                    "assets/Photos couteaux/Puukko/Puukko-vert-1.jpeg",
+                    "assets/Photos couteaux/Puukko/Puukko-vert-2.jpeg",
+                    "assets/Photos couteaux/Puukko/Puukko-vert-3.jpeg",
+                    "assets/Photos couteaux/Puukko/Puukko-vert-4.jpeg",
+                    "assets/Photos couteaux/Puukko/Puukko-vert-5.jpeg"
+                ]
             },
             6: {
-                title: "Couteau à Découper",
-                price: "380€",
-                description: "Couteau de chef forgé à la main avec lame en acier haut carbone et manche en noyer. Lame de 20cm, longueur totale 33cm. Poids 210g.",
-                steel: "Acier : Shirogami #2",
-                wood: "Manche : Noyer massif",
-                dimensions: "Dimensions : 33cm (lame 20cm)",
-                weight: "Poids : 210g",
-                image: "https://images.unsplash.com/photo-1603362858665-d3e9e56a6e24?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                title: "Honesuki Suminagashi",
+                price: "140€",
+                description: "Le Honesuki, qui se traduit par \"amoureux des os\" est un couteau japonais initialement conçu pour la préparation de la volaille, mais également efficace pour l'apprêtage de petits poissons.",
+                steel: "Lame : Acier Inox Damas Suminagashi 67 couches VG 10",
+                wood: "Manche : Bois de Palmier (Bali), Buis (France), Padouk (Afrique)",
+                dimensions: "Dimensions : Long. 280 mm • lame 148 mm • Larg. 40 mm",
+                weight: "Poids : 106 g",
+                image: "assets/Photos couteaux/Gamme Suminagashi/Honesuki-sum-1.jpeg",
+                images: [
+                    "assets/Photos couteaux/Gamme Suminagashi/Honesuki-sum-1.jpeg",
+                    "assets/Photos couteaux/Gamme Suminagashi/Honesuki-sum-2.jpeg",
+                    "assets/Photos couteaux/Gamme Suminagashi/Honesuki-sum-3.jpeg",
+                    "assets/Photos couteaux/Gamme Suminagashi/Honesuki-sum-4.jpeg",
+                    "assets/Photos couteaux/Gamme Suminagashi/Honesuki-sum-5.jpeg"
+                ]
+            },
+            7: {
+                title: "Kiritsuke Suminagashi",
+                price: "190€",
+                description: "Kiritsuke signifie en japonais \"fendre\". Le couteau Kiritsuke est doté d'un dos de lame droit qui tombe vers la pointe à la manière d'un katana japonais.",
+                steel: "Lame : Acier Inox Damas Suminagashi 67 couches VG 10",
+                wood: "Manche : Bois de Palmier (Bali), Buis (France), Padouk (Afrique)",
+                dimensions: "Dimensions : Long. 352 mm • lame 203 mm • Larg. 40 mm",
+                weight: "Poids : 189 g",
+                image: "assets/Photos couteaux/Gamme Suminagashi/Kiritsuke-sum-1.jpeg",
+                images: [
+                    "assets/Photos couteaux/Gamme Suminagashi/Kiritsuke-sum-1.jpeg",
+                    "assets/Photos couteaux/Gamme Suminagashi/Kiritsuke-sum-2.jpeg",
+                    "assets/Photos couteaux/Gamme Suminagashi/Kiritsuke-sum-3.jpeg",
+                    "assets/Photos couteaux/Gamme Suminagashi/Kiritsuke-sum-4.jpeg",
+                    "assets/Photos couteaux/Gamme Suminagashi/Kiritsuke-sum-5.jpeg"
+                ]
+            },
+            8: {
+                title: "Kudamono",
+                price: "140€",
+                description: "Le Kudamono ou couteau d'office sert au nettoyage et à la découpe des légumes. C'est un couteau rigide qui se caractérise en outre par un bout pointu. Sa petite taille le rend donc extrêmement maniable et permet d'effectuer des découpes fines et précises. Éplucher, découper, tailler, il sait tout faire.",
+                steel: "Lame : Acier Inox Damas Suminagashi 67 couches VG 10",
+                wood: "Manche : Bois de Palmier (Bali), Buis (France), Padouk (Afrique)",
+                dimensions: "Dimensions : Long. 216 mm • lame 95 mm • Larg. 24 mm",
+                weight: "Poids : 65 g",
+                image: "assets/Photos couteaux/Gamme Suminagashi/Kudamono-sum-1.jpeg",
+                images: [
+                    "assets/Photos couteaux/Gamme Suminagashi/Kudamono-sum-1.jpeg",
+                    "assets/Photos couteaux/Gamme Suminagashi/Kudamono-sum-2.jpeg",
+                    "assets/Photos couteaux/Gamme Suminagashi/Kudamono-sum-3.jpeg",
+                    "assets/Photos couteaux/Gamme Suminagashi/Kudamono-sum-4.jpeg",
+                    "assets/Photos couteaux/Gamme Suminagashi/Kudamono-sum-5.jpeg"
+                ]
+            },
+            9: {
+                title: "Nakiri",
+                price: "190€",
+                description: "Le Nakiri bôchô se traduit par couteau pour la coupe des légumes verts. Sa forme rectangulaire si particulière qui lui vaut le sobriquet de \"couteau pelle\", surnom qui lui va comme un gant car on peut s'en servir pour transporter herbes et légumes coupés finement de la planche à découper à la casserole.",
+                steel: "Lame : Acier Inox Damas Suminagashi 67 couches VG 10",
+                wood: "Manche : Bois de Palmier (Bali), Buis (France), Padouk (Afrique)",
+                dimensions: "Dimensions : Long. 307 mm • lame 172 mm • Larg. 50 mm",
+                weight: "Poids : 180 g",
+                image: "assets/Photos couteaux/Gamme Suminagashi/Nakiri-sum-1.jpeg",
+                images: [
+                    "assets/Photos couteaux/Gamme Suminagashi/Nakiri-sum-1.jpeg",
+                    "assets/Photos couteaux/Gamme Suminagashi/Nakiri-sum-2.jpeg",
+                    "assets/Photos couteaux/Gamme Suminagashi/Nakiri-sum-3.jpeg",
+                    "assets/Photos couteaux/Gamme Suminagashi/Nakiri-sum-4.jpeg",
+                    "assets/Photos couteaux/Gamme Suminagashi/Nakiri-sum-5.jpeg"
+                ]
+            },
+            10: {
+                title: "Santoku",
+                price: "210€",
+                description: "Le Santoku est un des couteaux japonais les plus connus. Il signifie « trois vertus » en japonais. Ses fameuses 3 vertus sont sa capacité à couper le poisson, la viande et les fruits & légumes.",
+                steel: "Lame : Acier Inox Damas Suminagashi 67 couches VG 10",
+                wood: "Manche : Défense de Phacochère (Sénégal), If (France), Ébène (Gabon)",
+                dimensions: "Dimensions : Long. 308 mm • lame 172 mm • Larg. 40 mm",
+                weight: "Poids : 140 g",
+                image: "assets/Photos couteaux/Gamme Suminagashi/Santoku-sum-1.jpeg",
+                images: [
+                    "assets/Photos couteaux/Gamme Suminagashi/Santoku-sum-1.jpeg",
+                    "assets/Photos couteaux/Gamme Suminagashi/Santoku-sum-2.jpeg",
+                    "assets/Photos couteaux/Gamme Suminagashi/Santoku-sum-3.jpeg",
+                    "assets/Photos couteaux/Gamme Suminagashi/Santoku-sum-4.jpeg",
+                    "assets/Photos couteaux/Gamme Suminagashi/Santoku-sum-5.jpeg"
+                ]
+            },
+            11: {
+                title: "Bunka",
+                price: "160€",
+                description: "Bunka bôchô se traduit littéralement par le couteau de cuisine (bôchô) culturel (bunka). Car c'est LE couteau japonais par essence. Le Bunka s'utilise comme un couteau Santoku (sa lame est entre le Guyto et le Santoku) mais sa forme lui donne un aspect plus traditionnel, car sa pointe ressemble un peu à celle d'un katana, comme celui du Kiritsuke.",
+                steel: "Lame : 14C28N",
+                wood: "Manche : Bois de Palmier (Bali), Buis (France), Padouk (Afrique)",
+                dimensions: "Dimensions : Long. 290 mm • lame 156 mm • Larg. 45 mm",
+                weight: "Poids : 144 g",
+                image: "assets/Photos couteaux/Gamme Tsuchime/bunka-tsu-1.jpeg",
+                images: [
+                    "assets/Photos couteaux/Gamme Tsuchime/bunka-tsu-1.jpeg",
+                    "assets/Photos couteaux/Gamme Tsuchime/bunka-tsu-2.jpeg",
+                    "assets/Photos couteaux/Gamme Tsuchime/bunka-tsu-3.jpeg",
+                    "assets/Photos couteaux/Gamme Tsuchime/bunka-tsu-4.jpeg",
+                    "assets/Photos couteaux/Gamme Tsuchime/bunka-tsu-5.jpeg"
+                ]
+            },
+            12: {
+                title: "Honesuki",
+                price: "120€",
+                description: "Le Honesuki, qui se traduit par \"amoureux des os\" est un couteau japonais initialement conçu pour la préparation de la volaille, mais également efficace pour l'apprêtage de petits poissons.",
+                steel: "Lame : 14C28N",
+                wood: "Manche : Bois de Palmier (Bali), Buis (France), Padouk (Afrique)",
+                dimensions: "Dimensions : Long. 283 mm • lame 152 mm • Larg. 40 mm",
+                weight: "Poids : 110 g",
+                image: "assets/Photos couteaux/Gamme Tsuchime/honesuki-tsu-1.jpeg",
+                images: [
+                    "assets/Photos couteaux/Gamme Tsuchime/honesuki-tsu-1.jpeg",
+                    "assets/Photos couteaux/Gamme Tsuchime/honesuki-tsu-2.jpeg",
+                    "assets/Photos couteaux/Gamme Tsuchime/honesuki-tsu-3.jpeg",
+                    "assets/Photos couteaux/Gamme Tsuchime/honesuki-tsu-4.jpeg",
+                    "assets/Photos couteaux/Gamme Tsuchime/honesuki-tsu-5.jpeg"
+                ]
+            },
+            13: {
+                title: "Kiritsuke",
+                price: "160€",
+                description: "Kiritsuke signifie en japonais \"fendre\". Le couteau Kiritsuke est doté d'un dos de lame droit qui tombe vers la pointe à la manière d'un katana japonais.",
+                steel: "Lame : 14C28N",
+                wood: "Manche : Bois de Palmier (Bali), Buis (France), Padouk (Afrique)",
+                dimensions: "Dimensions : Long. 330 mm • lame 193 mm • Larg. 45 mm",
+                weight: "Poids : 171 g",
+                image: "assets/Photos couteaux/Gamme Tsuchime/kiritsuke-tsu-1.jpeg",
+                images: [
+                    "assets/Photos couteaux/Gamme Tsuchime/kiritsuke-tsu-1.jpeg",
+                    "assets/Photos couteaux/Gamme Tsuchime/kiritsuke-tsu-2.jpeg",
+                    "assets/Photos couteaux/Gamme Tsuchime/kiritsuke-tsu-3.jpeg",
+                    "assets/Photos couteaux/Gamme Tsuchime/kiritsuke-tsu-4.jpeg",
+                    "assets/Photos couteaux/Gamme Tsuchime/kiritsuke-tsu-5.jpeg"
+                ]
+            },
+            14: {
+                title: "Nakiri",
+                price: "160€",
+                description: "Le Nakiri bôchô se traduit par couteau pour la coupe des légumes verts. Sa forme rectangulaire si particulière qui lui vaut le sobriquet de \"couteau pelle\", surnom qui lui va comme un gant car on peut s'en servir pour transporter herbes et légumes coupés finement de la planche à découper à la casserole.",
+                steel: "Lame : 14C28N",
+                wood: "Manche : Bois de Palmier (Bali), Buis (France), Padouk (Afrique)",
+                dimensions: "Dimensions : Long. 312 mm • lame 180 mm • Larg. 49 mm",
+                weight: "Poids : 182 g",
+                image: "assets/Photos couteaux/Gamme Tsuchime/Nakiri-tsu-1.jpeg",
+                images: [
+                    "assets/Photos couteaux/Gamme Tsuchime/Nakiri-tsu-1.jpeg",
+                    "assets/Photos couteaux/Gamme Tsuchime/Nakiri-tsu-2.jpeg",
+                    "assets/Photos couteaux/Gamme Tsuchime/Nakiri-tsu-3.jpeg",
+                    "assets/Photos couteaux/Gamme Tsuchime/Nakiri-tsu-4.jpeg",
+                    "assets/Photos couteaux/Gamme Tsuchime/Nakiri-tsu-5.jpeg"
+                ]
             }
         };
         
@@ -742,8 +1104,31 @@
             btn.addEventListener('click', () => {
                 currentProductId = btn.dataset.product;
                 const product = products[currentProductId];
+
+                // Debug
+                console.log('Ouverture modal pour produit:', currentProductId, product);
+
+                // Remplir les images du carrousel
+                const thumbnailContainer = document.getElementById('thumbnail-container');
+                thumbnailContainer.innerHTML = '';
+                product.images.forEach((img, i) => {
+                    const div = document.createElement('div');
+                    div.className = 'h-16 rounded overflow-hidden cursor-pointer thumbnail' + (i === 0 ? ' active' : '');
+                    div.style.backgroundColor = 'var(--color-bg)';
+                    div.innerHTML = `<img src="${img}" alt="" class="w-full h-full object-cover" onerror="console.log('Erreur chargement:', this.src)">`;
+                    thumbnailContainer.appendChild(div);
+                });
+
+                // Mettre à jour les références des thumbnails
+                window.thumbnails = thumbnailContainer.querySelectorAll('.thumbnail');
                 
-                modalImage.src = product.image;
+                // Rendre les thumbnails cliquables pour agrandissement
+                makeThumbnailsClickable();
+
+                // Mettre à jour l'image principale
+                modalImage.src = product.images[0];
+
+                // ...texte comme avant...
                 modalTitle.textContent = product.title;
                 modalPrice.textContent = product.price;
                 modalDescription.textContent = product.description;
@@ -752,9 +1137,13 @@
                 modalDimensions.textContent = product.dimensions;
                 modalWeight.textContent = product.weight;
                 quantityElement.textContent = '1';
-                
+
                 productModal.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
+
+                // Réinitialiser le carrousel
+                currentImageIndex = 0;
+                updateCarousel(0);
             });
         });
         
@@ -811,6 +1200,16 @@
         
         addToCartBtn.addEventListener('click', () => {
             if (!currentProductId) return;
+            
+            // Si c'est le Puukko Carbone (produit 5), afficher l'avertissement
+            if (currentProductId === '5') {
+                pendingCarbonProduct = {
+                    id: currentProductId,
+                    quantity: parseInt(quantityElement.textContent)
+                };
+                carbonWarningModal.classList.remove('hidden');
+                return;
+            }
             
             const quantity = parseInt(quantityElement.textContent);
             const product = products[currentProductId];
@@ -973,12 +1372,12 @@
         let currentImageIndex = 0;
 
         function updateCarousel(index) {
-            // Mettre à jour l'image principale
-            const images = Array.from(thumbnails).map(thumb => thumb.querySelector('img').src);
-            modalImage.src = images[index];
+            const product = products[currentProductId];
+            if (!product) return;
+            modalImage.src = product.images[index];
 
             // Mettre à jour les thumbnails actifs
-            thumbnails.forEach((thumb, i) => {
+            window.thumbnails.forEach((thumb, i) => {
                 if (i === index) {
                     thumb.classList.add('active', 'ring-2', 'ring-red-700');
                 } else {
@@ -990,12 +1389,14 @@
         }
 
         carouselNavPrev.addEventListener('click', () => {
-            const newIndex = currentImageIndex === 0 ? thumbnails.length - 1 : currentImageIndex - 1;
+            const product = products[currentProductId];
+            const newIndex = currentImageIndex === 0 ? product.images.length - 1 : currentImageIndex - 1;
             updateCarousel(newIndex);
         });
 
         carouselNavNext.addEventListener('click', () => {
-            const newIndex = currentImageIndex === thumbnails.length - 1 ? 0 : currentImageIndex + 1;
+            const product = products[currentProductId];
+            const newIndex = currentImageIndex === product.images.length - 1 ? 0 : currentImageIndex + 1;
             updateCarousel(newIndex);
         });
 
@@ -1019,6 +1420,116 @@
         // Réinitialiser le carrousel quand le modal est ouvert
         viewDetailsBtns.forEach(btn => {
             btn.addEventListener('click', () => {
+                currentImageIndex = 0;
+                updateCarousel(0);
+            });
+        });
+
+        // Carrousel : Mettre à jour les thumbnails à chaque ouverture de modal
+        thumbnailContainer.addEventListener('click', (e) => {
+            const thumbs = Array.from(window.thumbnails);
+            const idx = thumbs.findIndex(thumb => thumb.contains(e.target));
+            if (idx !== -1) {
+                updateCarousel(idx);
+            }
+        });
+
+        // Fonctionnalité d'agrandissement d'image
+        const imageZoomModal = document.getElementById('image-zoom-modal');
+        const zoomedImage = document.getElementById('zoomed-image');
+        const modalImageElement = document.getElementById('modal-image');
+        const zoomCloseBtn = document.querySelector('.zoom-close-btn');
+        
+        // Agrandir l'image principale au clic
+        modalImageElement.addEventListener('click', () => {
+            zoomedImage.src = modalImageElement.src;
+            imageZoomModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        // Fermer l'agrandissement
+        function closeImageZoom() {
+            imageZoomModal.classList.add('hidden');
+            document.body.style.overflow = 'hidden'; // Garde le scroll bloqué car le modal produit est toujours ouvert
+        }
+        
+        zoomCloseBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeImageZoom();
+        });
+        
+        imageZoomModal.addEventListener('click', (e) => {
+            if (e.target === imageZoomModal) {
+                closeImageZoom();
+            }
+        });
+        
+        // Support des touches clavier pour fermer l'agrandissement
+        document.addEventListener('keydown', (e) => {
+            if (!imageZoomModal.classList.contains('hidden') && e.key === 'Escape') {
+                closeImageZoom();
+            }
+        });
+        
+        // Permettre aux thumbnails d'être également cliquables pour agrandissement
+        function makeThumbnailsClickable() {
+            document.querySelectorAll('.thumbnail img').forEach(thumb => {
+                thumb.classList.add('image-clickable');
+                thumb.style.cursor = 'zoom-in';
+                thumb.title = 'Cliquez pour agrandir';
+                
+                thumb.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Empêche le changement d'image principale
+                    zoomedImage.src = thumb.src;
+                    imageZoomModal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+        }
+        
+        // Mise à jour de la fonction d'ouverture de modal pour inclure les thumbnails cliquables
+        viewDetailsBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentProductId = btn.dataset.product;
+                const product = products[currentProductId];
+
+                // Debug
+                console.log('Ouverture modal pour produit:', currentProductId, product);
+
+                // Remplir les images du carrousel
+                const thumbnailContainer = document.getElementById('thumbnail-container');
+                thumbnailContainer.innerHTML = '';
+                product.images.forEach((img, i) => {
+                    const div = document.createElement('div');
+                    div.className = 'h-16 rounded overflow-hidden cursor-pointer thumbnail' + (i === 0 ? ' active' : '');
+                    div.style.backgroundColor = 'var(--color-bg)';
+                    div.innerHTML = `<img src="${img}" alt="" class="w-full h-full object-cover" onerror="console.log('Erreur chargement:', this.src)">`;
+                    thumbnailContainer.appendChild(div);
+                });
+
+                // Mettre à jour les références des thumbnails
+                window.thumbnails = thumbnailContainer.querySelectorAll('.thumbnail');
+                
+                // Rendre les thumbnails cliquables pour agrandissement
+                makeThumbnailsClickable();
+
+                // Mettre à jour l'image principale
+                modalImage.src = product.images[0];
+
+                // ...texte comme avant...
+                modalTitle.textContent = product.title;
+                modalPrice.textContent = product.price;
+                modalDescription.textContent = product.description;
+                modalSteel.textContent = product.steel;
+                modalWood.textContent = product.wood;
+                modalDimensions.textContent = product.dimensions;
+                modalWeight.textContent = product.weight;
+                quantityElement.textContent = '1';
+
+                productModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+
+                // Réinitialiser le carrousel
                 currentImageIndex = 0;
                 updateCarousel(0);
             });
