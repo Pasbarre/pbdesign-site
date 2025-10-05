@@ -158,7 +158,39 @@
             margin-bottom: 8px;
         }
         
-        /* ...existing styles... */
+        /* Zoom survol atelier */
+        #atelier .grid {
+            overflow: visible; /* permet à l'image agrandie de dépasser */
+        }
+        .workshop-image {
+            position: relative;
+            transition: transform .5s ease;
+            transform-origin: center center;
+            will-change: transform;
+            background: var(--color-bg);
+        }
+        .workshop-image:hover {
+            transform: scale(2);
+            z-index: 60;
+            box-shadow: 0 12px 28px -6px rgba(0,0,0,0.45);
+            cursor: zoom-in;
+        }
+        /* L’image reste full container */
+        .workshop-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none; /* évite les clignotements sur hover */
+        }
+        /* Optionnel: désactiver sur mobile (décommenter si souhaité)
+        @media (max-width: 640px) {
+            .workshop-image:hover {
+                transform: none;
+                box-shadow: none;
+            }
+        }
+        */
     </style>
 </head>
 <body class="min-h-screen">
@@ -239,7 +271,7 @@
                 <!-- Honesuki Suminagashi -->
                 <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="cuisine" data-subcategory="cuisine-damas">
                     <div class="h-64 overflow-hidden bg-gray-900">
-                        <img src="assets/Photos couteaux/Gamme Suminagashi/Honesuki-sum-1.jpeg" alt="Honesuki Suminagashi" class="w-full h-full object-cover">
+                        <img src="assets/Photos-couteaux/Gamme-Suminagashi/Honesuki-sum-1.jpeg" alt="Honesuki Suminagashi" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl mb-2" style="color: #FFFFFF;">Honesuki Suminagashi</h3>
@@ -253,7 +285,7 @@
                 <!-- Kiritsuke Suminagashi -->
                 <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="cuisine" data-subcategory="cuisine-damas">
                     <div class="h-64 overflow-hidden bg-gray-900">
-                        <img src="assets/Photos couteaux/Gamme Suminagashi/Kiritsuke-sum-1.jpeg" alt="Kiritsuke Suminagashi" class="w-full h-full object-cover">
+                        <img src="assets/Photos-couteaux/Gamme-Suminagashi/Kiritsuke-sum-1.jpeg" alt="Kiritsuke Suminagashi" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl mb-2" style="color: #FFFFFF;">Kiritsuke Suminagashi</h3>
@@ -267,7 +299,7 @@
                 <!-- Kudamono Suminagashi -->
                 <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="cuisine" data-subcategory="cuisine-damas">
                     <div class="h-64 overflow-hidden bg-gray-900">
-                        <img src="assets/Photos couteaux/Gamme Suminagashi/Kudamono-sum-1.jpeg" alt="Kudamono" class="w-full h-full object-cover">
+                        <img src="assets/Photos-couteaux/Gamme-Suminagashi/Kudamono-sum-1.jpeg" alt="Kudamono" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl mb-2" style="color: #FFFFFF;">Kudamono</h3>
@@ -281,7 +313,7 @@
                 <!-- Nakiri Suminagashi -->
                 <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="cuisine" data-subcategory="cuisine-damas">
                     <div class="h-64 overflow-hidden bg-gray-900">
-                        <img src="assets/Photos couteaux/Gamme Suminagashi/Nakiri-sum-1.jpeg" alt="Nakiri" class="w-full h-full object-cover">
+                        <img src="assets/Photos-couteaux/Gamme-Suminagashi/Nakiri-sum-1.jpeg" alt="Nakiri" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl mb-2" style="color: #FFFFFF;">Nakiri</h3>
@@ -295,7 +327,7 @@
                 <!-- Santoku Suminagashi -->
                 <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="cuisine" data-subcategory="cuisine-damas">
                     <div class="h-64 overflow-hidden bg-gray-900">
-                        <img src="assets/Photos couteaux/Gamme Suminagashi/Santoku-sum-1.jpeg" alt="Santoku" class="w-full h-full object-cover">
+                        <img src="assets/Photos-couteaux/Gamme-Suminagashi/Santoku-sum-1.jpeg" alt="Santoku" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl mb-2" style="color: #FFFFFF;">Santoku</h3>
@@ -310,7 +342,7 @@
                 <!-- Bunka Tsuchime -->
                 <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="cuisine" data-subcategory="cuisine-carbone">
                     <div class="h-64 overflow-hidden bg-gray-900">
-                        <img src="assets/Photos couteaux/Gamme Tsuchime/bunka-tsu-1.jpeg" alt="Bunka" class="w-full h-full object-cover">
+                        <img src="assets/Photos-couteaux/Gamme-Tsuchime/bunka-tsu-1.jpeg" alt="Bunka" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl mb-2" style="color: #FFFFFF;">Bunka</h3>
@@ -324,7 +356,7 @@
                 <!-- Honesuki Tsuchime -->
                 <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="cuisine" data-subcategory="cuisine-carbone">
                     <div class="h-64 overflow-hidden bg-gray-900">
-                        <img src="assets/Photos couteaux/Gamme Tsuchime/honesuki-tsu-1.jpeg" alt="Honesuki" class="w-full h-full object-cover">
+                        <img src="assets/Photos-couteaux/Gamme-Tsuchime/honesuki-tsu-1.jpeg" alt="Honesuki" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl mb-2" style="color: #FFFFFF;">Honesuki</h3>
@@ -338,7 +370,7 @@
                 <!-- Kiritsuke Tsuchime -->
                 <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="cuisine" data-subcategory="cuisine-carbone">
                     <div class="h-64 overflow-hidden bg-gray-900">
-                        <img src="assets/Photos couteaux/Gamme Tsuchime/kiritsuke-tsu-1.jpeg" alt="Kiritsuke" class="w-full h-full object-cover">
+                        <img src="assets/Photos-couteaux/Gamme-Tsuchime/kiritsuke-tsu-1.jpeg" alt="Kiritsuke" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl mb-2" style="color: #FFFFFF;">Kiritsuke</h3>
@@ -352,7 +384,7 @@
                 <!-- Nakiri Tsuchime -->
                 <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="cuisine" data-subcategory="cuisine-carbone">
                     <div class="h-64 overflow-hidden bg-gray-900">
-                        <img src="assets/Photos couteaux/Gamme Tsuchime/Nakiri-tsu-1.jpeg" alt="Nakiri" class="w-full h-full object-cover">
+                        <img src="assets/Photos-couteaux/Gamme-Tsuchime/Nakiri-tsu-1.jpeg" alt="Nakiri" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl mb-2" style="color: #FFFFFF;">Nakiri</h3>
@@ -367,7 +399,7 @@
                 <!-- Puukko Inox -->
                 <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="puukko">
                     <div class="h-64 overflow-hidden bg-gray-900">
-                        <img src="assets/Photos couteaux/Puukko/Puukko-vio-1.jpeg" alt="Puukko Inox" class="w-full h-full object-cover">
+                        <img src="assets/Photos-couteaux/Puukko/Puukko-vio-1.jpeg" alt="Puukko Inox" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl mb-2" style="color: #FFFFFF;">Puukko Inox</h3>
@@ -381,7 +413,7 @@
                 <!-- Puukko Carbone -->
                 <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="puukko">
                     <div class="h-64 overflow-hidden bg-gray-900">
-                        <img src="assets/Photos couteaux/Puukko/Puukko-vert-1.jpeg" alt="Puukko Carbone" class="w-full h-full object-cover">
+                        <img src="assets/Photos-couteaux/Puukko/Puukko-vert-1.jpeg" alt="Puukko Carbone" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl mb-2" style="color: #FFFFFF;">Puukko Carbone</h3>
@@ -395,7 +427,7 @@
                 <!-- Product 3 -->
                 <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="pliant">
                     <div class="h-64 overflow-hidden bg-gray-900">
-                        <img src="assets/Photos couteaux/Puukko/pliant1.jpg" alt="Pliant Artisanal" class="w-full h-full object-cover">
+                        <img src="assets/Photos-couteaux/Puukko/pliant1.jpg" alt="Pliant Artisanal" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl mb-2" style="color: #FFFFFF;">Pliant Artisanal</h3>
@@ -409,7 +441,7 @@
                 <!-- Product 4 -->
                 <div class="product-card rounded overflow-hidden relative shadow-[-8px_8px_16px_-2px_rgba(0,0,0,0.5)] hover:shadow-[-12px_12px_24px_-2px_rgba(0,0,0,0.6)] hover:rotate-[-2deg] transform transition-all duration-300 ease-in-out" style="background-color: #262001;" data-category="accessoire">
                     <div class="h-64 overflow-hidden bg-gray-900">
-                        <img src="assets/Photos couteaux/Accessoires/etui1.jpg" alt="Étui en Cuir" class="w-full h-full object-cover">
+                        <img src="assets/Photos-couteaux/Accessoires/etui1.jpg" alt="Étui en Cuir" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl mb-2" style="color: #FFFFFF;">Étui en Cuir</h3>
@@ -431,16 +463,19 @@
             <div class="flex flex-col md:flex-row gap-12 items-center">
                 <div class="md:w-1/3">
                     <div class="w-full mx-auto">
-                        <img src="assets/moi.png" 
-                             alt="Pascal Barré" 
-                             class="w-full h-auto">
+                        <img src="assets/moi.png" alt="Pascal Barré" class="w-full h-auto">
                     </div>
                 </div>
                 <div class="md:w-2/3">
                     <h3 class="text-2xl mb-4" style="color: var(--color-text);">Pascal Barré</h3>
-                    <p class="mb-4" style="color: var(--color-text);">Avant d'être coutelier, j'ai été pilote d'hélicoptère, peintre, sculpteur, créateur de bijoux. Mon parcours est celui d'un autodidacte guidé par la passion et l'exigence du geste juste. Aujourd'hui, je façonne des couteaux comme j'ai toujours abordé l'art : avec la rigueur de l'artisan et la liberté de l'artiste.</p>
-                    <p class="mb-4" style="color: var(--color-text);">Chaque pièce naît d'un dialogue entre matière et forme. Les lignes épurées de mes puukkos d'inspiration nordique, ou la sobriété de mes lames de cuisine d'inspiration japonaise, sont le reflet de cette recherche d'équilibre : utilité et beauté, solidité et élégance. Entièrement réalisés à la main, sans machines numériques, mes couteaux peuvent porter de légères imperfections — elles sont la trace de leur authenticité et de leur singularité.</p>
-                    <p style="color: var(--color-text);">Mon atelier, semi-enterré et conçu comme une aile d'avion, est plus qu'un lieu de travail : c'est un espace de création où je m'ancre et m'élève à la fois. Là, entre solitude et lumière, je donne naissance à des couteaux qui portent une part de mon univers.</p>
+                    <!-- Nouveau contenu -->
+                    <p style="color: var(--color-text);">
+                        Avant d'être coutelier, j'ai été pilote d'hélicoptère, peintre, sculpteur, créateur de bijoux et constructeur de maisons ossature bois. J'ai également construit un voilier de 12 m en acier avec lequel nous avons navigué en famille pendant quelques années. Mon parcours est celui d'un autodidacte guidé par la passion et l'exigence du geste juste. Aujourd'hui, je façonne des couteaux comme j'ai toujours abordé l'art : avec la rigueur de l'artisan et la liberté de l'artiste.
+                    </p>
+                    <p style="color: var(--color-text);">
+                        Chaque pièce naît d'un dialogue entre matière et forme. Les lignes épurées de mes Puukkos d'inspiration nordique, ou la sobriété de mes lames de cuisine d'inspiration japonaise, sont le reflet de cette recherche d'équilibre : utilité et beauté, solidité et élégance. Entièrement réalisés à la main, sans machines numériques, mes couteaux peuvent porter de légères imperfections — elles sont la trace de leur authenticité et de leur singularité.
+                    </p>
+                    <!-- Fin nouveau contenu -->
                 </div>
             </div>
         </div>
@@ -451,37 +486,57 @@
         <div class="container mx-auto">
             <h2 class="text-3xl font-light mb-12 text-center" style="color: var(--color-text);">L'Atelier</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                <div class="workshop-image overflow-hidden" style="border: 1px solid var(--color-primary);">
-                    <img src="assets/Photos-atelier/Atelier-1.png" alt="Atelier 1" class="w-full h-64 object-cover">
-                </div>
-                <div class="workshop-image overflow-hidden" style="border: 1px solid var(--color-primary);">
-                    <img src="assets/Photos-atelier/Atelier-2.png" alt="Atelier 2" class="w-full h-64 object-cover">
-                </div>
-                <div class="workshop-image overflow-hidden" style="border: 1px solid var(--color-primary);">
-                    <img src="assets/Photos-atelier/Atelier-3.png" alt="Atelier 3" class="w-full h-64 object-cover">
-                </div>
-                <div class="workshop-image overflow-hidden" style="border: 1px solid var(--color-primary);">
-                    <img src="assets/Photos-atelier/Atelier-4.png" alt="Atelier 4" class="w-full h-64 object-cover">
-                </div>
-                <div class="workshop-image overflow-hidden" style="border: 1px solid var(--color-primary);">
-                    <img src="assets/Photos-atelier/Atelier-5.png" alt="Atelier 5" class="w-full h-64 object-cover">
-                </div>
-                <div class="workshop-image overflow-hidden" style="border: 1px solid var(--color-primary);">
-                    <img src="assets/Photos-atelier/Atelier-6.png" alt="Atelier 6" class="w-full h-64 object-cover">
-                </div>
-                <div class="workshop-image overflow-hidden" style="border: 1px solid var(--color-primary);">
-                    <img src="assets/Photos-atelier/Atelier-8.png" alt="Atelier 8" class="w-full h-64 object-cover">
-                </div>
-                <div class="workshop-image overflow-hidden" style="border: 1px solid var(--color-primary);">
-                    <img src="assets/Photos-atelier/Atelier-9.png" alt="Atelier 9" class="w-full h-64 object-cover">
-                </div>
+            <!-- Nouveau texte descriptif -->
+            <div class="max-w-3xl mx-auto mb-12 space-y-6 leading-relaxed" style="color: var(--color-text);">
+                <p>
+                    Mon besoin d'un lieu unique, mon atelier, puise ses racines dans une double fascination. Enfant, les mystères sous-marins du Capitaine Nemo m'ont imprégné. Plus tard, bâtisseur d'un voilier en acier et navigateur en famille, j'ai exploré la puissance de l'eau. Cette immersion m'a ancré dans la rigueur du faire.
+                </p>
+                <p>
+                    Puis, l'attrait des airs a modelé une autre facette de mon esprit. De cette rencontre entre les profondeurs et les hauteurs est née l'architecture singulière de mon atelier : un "sous-terrin" secret, hommage au Nautilus, offre un espace de concentration intense. Au-dessus, une structure légère, évoquant une aile d'avion, capte la lumière zénithale du Nord. C'est sous cette clarté parfaite, idéale pour l'artiste, que la matière prend vie.
+                </p>
+                <p>
+                    Ce lieu est aussi le fruit de ma passion pour la création technique : une grande partie de mes machines et outils y sont conçus et fabriqués de mes mains. Mon atelier n'est pas qu'un espace ; c'est un écosystème, une continuité de mon histoire, où chaque outil et chaque lumière sert la naissance d'une œuvre.
+                </p>
             </div>
-            
-            <div class="text-center max-w-2xl mx-auto">
-                <h3 class="text-xl mb-4">Visitez l'Atelier</h3>
-                <p class="mb-6" style="color: var(--color-text);">Situé au cœur de la Normandie, mon atelier est ouvert sur rendez-vous pour les passionnés souhaitant découvrir le processus de fabrication et l'univers de la coutellerie artisanale.</p>
-                <a href="#contact" class="inline-block px-8 py-3 transition hover:opacity-90" style="background-color: var(--color-primary); color: #D9CBBA;">Prendre rendez-vous</a>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-0">
+                <!-- Grille statique 12 photos (corrigée avec underscores) -->
+                <div class="workshop-image overflow-hidden" style="border:1px solid var(--color-primary);">
+                    <img loading="lazy" src="assets/Photos-atelier/Atelier_1.png" alt="Atelier 1" class="w-full h-64 object-cover">
+                </div>
+                <div class="workshop-image overflow-hidden" style="border:1px solid var(--color-primary);">
+                    <img loading="lazy" src="assets/Photos-atelier/Atelier_2.png" alt="Atelier 2" class="w-full h-64 object-cover">
+                </div>
+                <div class="workshop-image overflow-hidden" style="border:1px solid var(--color-primary);">
+                    <img loading="lazy" src="assets/Photos-atelier/Atelier_3.png" alt="Atelier 3" class="w-full h-64 object-cover">
+                </div>
+                <div class="workshop-image overflow-hidden" style="border:1px solid var(--color-primary);">
+                    <img loading="lazy" src="assets/Photos-atelier/Atelier_4.png" alt="Atelier 4" class="w-full h-64 object-cover">
+                </div>
+                <div class="workshop-image overflow-hidden" style="border:1px solid var(--color-primary);">
+                    <img loading="lazy" src="assets/Photos-atelier/Atelier_5.png" alt="Atelier 5" class="w-full h-64 object-cover">
+                </div>
+                <div class="workshop-image overflow-hidden" style="border:1px solid var(--color-primary);">
+                    <img loading="lazy" src="assets/Photos-atelier/Atelier_6.png" alt="Atelier 6" class="w-full h-64 object-cover">
+                </div>
+                <div class="workshop-image overflow-hidden" style="border:1px solid var(--color-primary);">
+                    <img loading="lazy" src="assets/Photos-atelier/Atelier_7.png" alt="Atelier 7" class="w-full h-64 object-cover">
+                </div>
+                <div class="workshop-image overflow-hidden" style="border:1px solid var(--color-primary);">
+                    <img loading="lazy" src="assets/Photos-atelier/Atelier_8.png" alt="Atelier 8" class="w-full h-64 object-cover">
+                </div>
+                <div class="workshop-image overflow-hidden" style="border:1px solid var(--color-primary);">
+                    <img loading="lazy" src="assets/Photos-atelier/Atelier_9.png" alt="Atelier 9" class="w-full h-64 object-cover">
+                </div>
+                <div class="workshop-image overflow-hidden" style="border:1px solid var(--color-primary);">
+                    <img loading="lazy" src="assets/Photos-atelier/Atelier_10.png" alt="Atelier 10" class="w-full h-64 object-cover">
+                </div>
+                <div class="workshop-image overflow-hidden" style="border:1px solid var(--color-primary);">
+                    <img loading="lazy" src="assets/Photos-atelier/Atelier_11.png" alt="Atelier 11" class="w-full h-64 object-cover">
+                </div>
+                <div class="workshop-image overflow-hidden" style="border:1px solid var(--color-primary);">
+                    <img loading="lazy" src="assets/Photos-atelier/Atelier_12.png" alt="Atelier 12" class="w-full h-64 object-cover">
+                </div>
             </div>
         </div>
     </section>
@@ -516,7 +571,7 @@
                 </div>
                 
                 <div class="md:w-1/2">
-                    <h3 class="text-xl mb-4">Coordonnées</h3>
+                    <h3 class="text-xl mb-4" style="color: var(--color-text);">Coordonnées</h3>
             <div class="space-y-4" style="color: var(--color-text);">
                 <div class="flex items-start">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 mt-1" fill="none" viewBox="0 0 24 24" stroke="var(--color-primary)">
@@ -889,13 +944,13 @@
                 wood: "Manche : Laiton, Juma Gem violet, Bois de Palmier (Cocos nucifera) Bali, Ivoire de substitution : Elforyn Super Tusk",
                 dimensions: "Dimensions : Long. 242 mm • lame 125 mm • Larg. 30 mm",
                 weight: "Poids : 138 g",
-                image: "assets/Photos couteaux/Puukko/Puukko-vio-1.jpeg",
+                image: "assets/Photos-couteaux/Puukko/Puukko-vio-1.jpeg",
                 images: [
-                    "assets/Photos couteaux/Puukko/Puukko-vio-1.jpeg",
-                    "assets/Photos couteaux/Puukko/Puukko-vio-2.jpeg", 
-                    "assets/Photos couteaux/Puukko/Puukko-vio-3.jpeg",
-                    "assets/Photos couteaux/Puukko/Puukko-vio-4.jpeg",
-                    "assets/Photos couteaux/Puukko/Puukko-vio-5.jpeg"
+                    "assets/Photos-couteaux/Puukko/Puukko-vio-1.jpeg",
+                    "assets/Photos-couteaux/Puukko/Puukko-vio-2.jpeg", 
+                    "assets/Photos-couteaux/Puukko/Puukko-vio-3.jpeg",
+                    "assets/Photos-couteaux/Puukko/Puukko-vio-4.jpeg",
+                    "assets/Photos-couteaux/Puukko/Puukko-vio-5.jpeg"
                 ]
             },
             3: {
@@ -906,13 +961,13 @@
                 wood: "Plaquettes : Micarta noir canvas",
                 dimensions: "Dimensions : 10cm fermé, 18cm ouvert",
                 weight: "Poids : 120g",
-                image: "assets/Photos couteaux/Puukko/pliant1.jpg",
+                image: "assets/Photos-couteaux/Puukko/pliant1.jpg",
                 images: [
-                    "assets/Photos couteaux/Puukko/pliant1.jpg",
-                    "assets/Photos couteaux/Puukko/pliant2.jpg",
-                    "assets/Photos couteaux/Puukko/pliant3.jpg",
-                    "assets/Photos couteaux/Puukko/pliant4.jpg",
-                    "assets/Photos couteaux/Puukko/pliant5.jpg"
+                    "assets/Photos-couteaux/Puukko/pliant1.jpg",
+                    "assets/Photos-couteaux/Puukko/pliant2.jpg",
+                    "assets/Photos-couteaux/Puukko/pliant3.jpg",
+                    "assets/Photos-couteaux/Puukko/pliant4.jpg",
+                    "assets/Photos-couteaux/Puukko/pliant5.jpg"
                 ]
             },
             4: {
@@ -923,13 +978,13 @@
                 wood: "Couleur : Brun havane naturel",
                 dimensions: "Dimensions : Sur mesure selon couteau",
                 weight: "Poids : Variable (80-150g)",
-                image: "assets/Photos couteaux/Accessoires/etui1.jpg",
+                image: "assets/Photos-couteaux/Accessoires/etui1.jpg",
                 images: [
-                    "assets/Photos couteaux/Accessoires/etui1.jpg",
-                    "assets/Photos couteaux/Accessoires/etui2.jpg",
-                    "assets/Photos couteaux/Accessoires/etui3.jpg",
-                    "assets/Photos couteaux/Accessoires/etui4.jpg",
-                    "assets/Photos couteaux/Accessoires/etui5.jpg"
+                    "assets/Photos-couteaux/Accessoires/etui1.jpg",
+                    "assets/Photos-couteaux/Accessoires/etui2.jpg",
+                    "assets/Photos-couteaux/Accessoires/etui3.jpg",
+                    "assets/Photos-couteaux/Accessoires/etui4.jpg",
+                    "assets/Photos-couteaux/Accessoires/etui5.jpg"
                 ]
             },
             5: {
@@ -940,13 +995,13 @@
                 wood: "Manche : Laiton, Juma Gem violet, Bouleau madré de Carélie (Betula pendula) Finlande, Padouk (Pterocarpus soyauxii) Afrique, Ivoire de substitution : Elforyn Super Tusk",
                 dimensions: "Dimensions : Long. 213 mm • lame 92 mm • Larg. 27 mm",
                 weight: "Poids : 109 g",
-                image: "assets/Photos couteaux/Puukko/Puukko-vert-1.jpeg",
+                image: "assets/Photos-couteaux/Puukko/Puukko-vert-1.jpeg",
                 images: [
-                    "assets/Photos couteaux/Puukko/Puukko-vert-1.jpeg",
-                    "assets/Photos couteaux/Puukko/Puukko-vert-2.jpeg",
-                    "assets/Photos couteaux/Puukko/Puukko-vert-3.jpeg",
-                    "assets/Photos couteaux/Puukko/Puukko-vert-4.jpeg",
-                    "assets/Photos couteaux/Puukko/Puukko-vert-5.jpeg"
+                    "assets/Photos-couteaux/Puukko/Puukko-vert-1.jpeg",
+                    "assets/Photos-couteaux/Puukko/Puukko-vert-2.jpeg",
+                    "assets/Photos-couteaux/Puukko/Puukko-vert-3.jpeg",
+                    "assets/Photos-couteaux/Puukko/Puukko-vert-4.jpeg",
+                    "assets/Photos-couteaux/Puukko/Puukko-vert-5.jpeg"
                 ]
             },
             6: {
@@ -957,13 +1012,13 @@
                 wood: "Manche : Bois de Palmier (Bali), Buis (France), Padouk (Afrique)",
                 dimensions: "Dimensions : Long. 280 mm • lame 148 mm • Larg. 40 mm",
                 weight: "Poids : 106 g",
-                image: "assets/Photos couteaux/Gamme Suminagashi/Honesuki-sum-1.jpeg",
+                image: "assets/Photos-couteaux/Gamme-Suminagashi/Honesuki-sum-1.jpeg",
                 images: [
-                    "assets/Photos couteaux/Gamme Suminagashi/Honesuki-sum-1.jpeg",
-                    "assets/Photos couteaux/Gamme Suminagashi/Honesuki-sum-2.jpeg",
-                    "assets/Photos couteaux/Gamme Suminagashi/Honesuki-sum-3.jpeg",
-                    "assets/Photos couteaux/Gamme Suminagashi/Honesuki-sum-4.jpeg",
-                    "assets/Photos couteaux/Gamme Suminagashi/Honesuki-sum-5.jpeg"
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Honesuki-sum-1.jpeg",
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Honesuki-sum-2.jpeg",
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Honesuki-sum-3.jpeg",
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Honesuki-sum-4.jpeg",
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Honesuki-sum-5.jpeg"
                 ]
             },
             7: {
@@ -974,12 +1029,13 @@
                 wood: "Manche : Bois de Palmier (Bali), Buis (France), Padouk (Afrique)",
                 dimensions: "Dimensions : Long. 352 mm • lame 203 mm • Larg. 40 mm",
                 weight: "Poids : 189 g",
-                image: "assets/Photos couteaux/Gamme Suminagashi/Kiritsuke-sum-1.jpeg",
+                image: "assets/Photos-couteaux/Gamme-Suminagashi/Kiritsuke-sum-1.jpeg",
                 images: [
-                    "assets/Photos couteaux/Gamme Suminagashi/Kiritsuke-sum-1.jpeg",
-                    "assets/Photos couteaux/Gamme Suminagashi/Kiritsuke-sum-2.jpeg",
-                    "assets/Photos couteaux/Gamme Suminagashi/Kiritsuke-sum-4.jpeg",
-                    "assets/Photos couteaux/Gamme Suminagashi/Kiritsuke-sum-5.jpeg"
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Kiritsuke-sum-1.jpeg",
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Kiritsuke-sum-2.jpeg",
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Kiritsuke-sum-3.jpeg",
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Kiritsuke-sum-4.jpeg",
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Kiritsuke-sum-5.jpeg"
                 ]
             },
             8: {
@@ -990,13 +1046,13 @@
                 wood: "Manche : Bois de Palmier (Bali), Buis (France), Padouk (Afrique)",
                 dimensions: "Dimensions : Long. 216 mm • lame 95 mm • Larg. 24 mm",
                 weight: "Poids : 65 g",
-                image: "assets/Photos couteaux/Gamme Suminagashi/Kudamono-sum-1.jpeg",
+                image: "assets/Photos-couteaux/Gamme-Suminagashi/Kudamono-sum-1.jpeg",
                 images: [
-                    "assets/Photos couteaux/Gamme Suminagashi/Kudamono-sum-1.jpeg",
-                    "assets/Photos couteaux/Gamme Suminagashi/Kudamono-sum-2.jpeg",
-                    "assets/Photos couteaux/Gamme Suminagashi/Kudamono-sum-3.jpeg",
-                    "assets/Photos couteaux/Gamme Suminagashi/Kudamono-sum-4.jpeg",
-                    "assets/Photos couteaux/Gamme Suminagashi/Kudamono-sum-5.jpeg"
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Kudamono-sum-1.jpeg",
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Kudamono-sum-2.jpeg",
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Kudamono-sum-3.jpeg",
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Kudamono-sum-4.jpeg",
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Kudamono-sum-5.jpeg"
                 ]
             },
             9: {
@@ -1007,13 +1063,13 @@
                 wood: "Manche : Bois de Palmier (Bali), Buis (France), Padouk (Afrique)",
                 dimensions: "Dimensions : Long. 307 mm • lame 172 mm • Larg. 50 mm",
                 weight: "Poids : 180 g",
-                image: "assets/Photos couteaux/Gamme Suminagashi/Nakiri-sum-1.jpeg",
+                image: "assets/Photos-couteaux/Gamme-Suminagashi/Nakiri-sum-1.jpeg",
                 images: [
-                    "assets/Photos couteaux/Gamme Suminagashi/Nakiri-sum-1.jpeg",
-                    "assets/Photos couteaux/Gamme Suminagashi/Nakiri-sum-2.jpeg",
-                    "assets/Photos couteaux/Gamme Suminagashi/Nakiri-sum-3.jpeg",
-                    "assets/Photos couteaux/Gamme Suminagashi/Nakiri-sum-4.jpeg",
-                    "assets/Photos couteaux/Gamme Suminagashi/Nakiri-sum-5.jpeg"
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Nakiri-sum-1.jpeg",
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Nakiri-sum-2.jpeg",
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Nakiri-sum-3.jpeg",
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Nakiri-sum-4.jpeg",
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Nakiri-sum-5.jpeg"
                 ]
             },
             10: {
@@ -1024,13 +1080,13 @@
                 wood: "Manche : Défense de Phacochère (Sénégal), If (France), Ébène (Gabon)",
                 dimensions: "Dimensions : Long. 308 mm • lame 172 mm • Larg. 40 mm",
                 weight: "Poids : 140 g",
-                image: "assets/Photos couteaux/Gamme Suminagashi/Santoku-sum-1.jpeg",
+                image: "assets/Photos-couteaux/Gamme-Suminagashi/Santoku-sum-1.jpeg",
                 images: [
-                    "assets/Photos couteaux/Gamme Suminagashi/Santoku-sum-1.jpeg",
-                    "assets/Photos couteaux/Gamme Suminagashi/Santoku-sum-2.jpeg",
-                    "assets/Photos couteaux/Gamme Suminagashi/Santoku-sum-3.jpeg",
-                    "assets/Photos couteaux/Gamme Suminagashi/Santoku-sum-4.jpeg",
-                    "assets/Photos couteaux/Gamme Suminagashi/Santoku-sum-5.jpeg"
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Santoku-sum-1.jpeg",
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Santoku-sum-2.jpeg",
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Santoku-sum-3.jpeg",
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Santoku-sum-4.jpeg",
+                    "assets/Photos-couteaux/Gamme-Suminagashi/Santoku-sum-5.jpeg"
                 ]
             },
             11: {
@@ -1041,13 +1097,13 @@
                 wood: "Manche : Bois de Palmier (Bali), Buis (France), Padouk (Afrique)",
                 dimensions: "Dimensions : Long. 290 mm • lame 156 mm • Larg. 45 mm",
                 weight: "Poids : 144 g",
-                image: "assets/Photos couteaux/Gamme Tsuchime/bunka-tsu-1.jpeg",
+                image: "assets/Photos-couteaux/Gamme-Tsuchime/bunka-tsu-1.jpeg",
                 images: [
-                    "assets/Photos couteaux/Gamme Tsuchime/bunka-tsu-1.jpeg",
-                    "assets/Photos couteaux/Gamme Tsuchime/bunka-tsu-2.jpeg",
-                    "assets/Photos couteaux/Gamme Tsuchime/bunka-tsu-3.jpeg",
-                    "assets/Photos couteaux/Gamme Tsuchime/bunka-tsu-4.jpeg",
-                    "assets/Photos couteaux/Gamme Tsuchime/bunka-tsu-5.jpeg"
+                    "assets/Photos-couteaux/Gamme-Tsuchime/bunka-tsu-1.jpeg",
+                    "assets/Photos-couteaux/Gamme-Tsuchime/bunka-tsu-2.jpeg",
+                    "assets/Photos-couteaux/Gamme-Tsuchime/bunka-tsu-3.jpeg",
+                    "assets/Photos-couteaux/Gamme-Tsuchime/bunka-tsu-4.jpeg",
+                    "assets/Photos-couteaux/Gamme-Tsuchime/bunka-tsu-5.jpeg"
                 ]
             },
             12: {
@@ -1058,13 +1114,13 @@
                 wood: "Manche : Bois de Palmier (Bali), Buis (France), Padouk (Afrique)",
                 dimensions: "Dimensions : Long. 283 mm • lame 152 mm • Larg. 40 mm",
                 weight: "Poids : 110 g",
-                image: "assets/Photos couteaux/Gamme Tsuchime/honesuki-tsu-1.jpeg",
+                image: "assets/Photos-couteaux/Gamme-Tsuchime/honesuki-tsu-1.jpeg",
                 images: [
-                    "assets/Photos couteaux/Gamme Tsuchime/honesuki-tsu-1.jpeg",
-                    "assets/Photos couteaux/Gamme Tsuchime/honesuki-tsu-2.jpeg",
-                    "assets/Photos couteaux/Gamme Tsuchime/honesuki-tsu-3.jpeg",
-                    "assets/Photos couteaux/Gamme Tsuchime/honesuki-tsu-4.jpeg",
-                    "assets/Photos couteaux/Gamme Tsuchime/honesuki-tsu-5.jpeg"
+                    "assets/Photos-couteaux/Gamme-Tsuchime/honesuki-tsu-1.jpeg",
+                    "assets/Photos-couteaux/Gamme-Tsuchime/honesuki-tsu-2.jpeg",
+                    "assets/Photos-couteaux/Gamme-Tsuchime/honesuki-tsu-3.jpeg",
+                    "assets/Photos-couteaux/Gamme-Tsuchime/honesuki-tsu-4.jpeg",
+                    "assets/Photos-couteaux/Gamme-Tsuchime/honesuki-tsu-5.jpeg"
                 ]
             },
             13: {
@@ -1075,13 +1131,13 @@
                 wood: "Manche : Bois de Palmier (Bali), Buis (France), Padouk (Afrique)",
                 dimensions: "Dimensions : Long. 330 mm • lame 193 mm • Larg. 45 mm",
                 weight: "Poids : 171 g",
-                image: "assets/Photos couteaux/Gamme Tsuchime/kiritsuke-tsu-1.jpeg",
+                image: "assets/Photos-couteaux/Gamme-Tsuchime/kiritsuke-tsu-1.jpeg",
                 images: [
-                    "assets/Photos couteaux/Gamme Tsuchime/kiritsuke-tsu-1.jpeg",
-                    "assets/Photos couteaux/Gamme Tsuchime/kiritsuke-tsu-2.jpeg",
-                    "assets/Photos couteaux/Gamme Tsuchime/kiritsuke-tsu-3.jpeg",
-                    "assets/Photos couteaux/Gamme Tsuchime/kiritsuke-tsu-4.jpeg",
-                    "assets/Photos couteaux/Gamme Tsuchime/kiritsuke-tsu-5.jpeg"
+                    "assets/Photos-couteaux/Gamme-Tsuchime/kiritsuke-tsu-1.jpeg",
+                    "assets/Photos-couteaux/Gamme-Tsuchime/kiritsuke-tsu-2.jpeg",
+                    "assets/Photos-couteaux/Gamme-Tsuchime/kiritsuke-tsu-3.jpeg",
+                    "assets/Photos-couteaux/Gamme-Tsuchime/kiritsuke-tsu-4.jpeg",
+                    "assets/Photos-couteaux/Gamme-Tsuchime/kiritsuke-tsu-5.jpeg"
                 ]
             },
             14: {
@@ -1092,13 +1148,13 @@
                 wood: "Manche : Bois de Palmier (Bali), Buis (France), Padouk (Afrique)",
                 dimensions: "Dimensions : Long. 312 mm • lame 180 mm • Larg. 49 mm",
                 weight: "Poids : 182 g",
-                image: "assets/Photos couteaux/Gamme Tsuchime/Nakiri-tsu-1.jpeg",
+                image: "assets/Photos-couteaux/Gamme-Tsuchime/Nakiri-tsu-1.jpeg",
                 images: [
-                    "assets/Photos couteaux/Gamme Tsuchime/Nakiri-tsu-1.jpeg",
-                    "assets/Photos couteaux/Gamme Tsuchime/Nakiri-tsu-2.jpeg",
-                    "assets/Photos couteaux/Gamme Tsuchime/Nakiri-tsu-3.jpeg",
-                    "assets/Photos couteaux/Gamme Tsuchime/Nakiri-tsu-4.jpeg",
-                    "assets/Photos couteaux/Gamme Tsuchime/Nakiri-tsu-5.jpeg"
+                    "assets/Photos-couteaux/Gamme-Tsuchime/Nakiri-tsu-1.jpeg",
+                    "assets/Photos-couteaux/Gamme-Tsuchime/Nakiri-tsu-2.jpeg",
+                    "assets/Photos-couteaux/Gamme-Tsuchime/Nakiri-tsu-3.jpeg",
+                    "assets/Photos-couteaux/Gamme-Tsuchime/Nakiri-tsu-4.jpeg",
+                    "assets/Photos-couteaux/Gamme-Tsuchime/Nakiri-tsu-5.jpeg"
                 ]
             }
         };
@@ -1406,6 +1462,17 @@
             }, 5000);
         });
 
+        // Fallback d’extension automatique (essaie .png puis .jpg si 404)
+        document.querySelectorAll('#atelier img').forEach(img => {
+            img.addEventListener('error', function onErr() {
+                if (this.dataset.tried === 'jpg') return;
+                if (!this.dataset.tried) {
+                    this.src = this.src.replace('.png', '.jpg');
+                    this.dataset.tried = 'jpg';
+                }
+            });
+        });
+
         // Carrousel functionality
         const carouselNavPrev = document.querySelector('.carousel-nav.prev');
         const carouselNavNext = document.querySelector('.carousel-nav.next');
@@ -1467,8 +1534,5 @@
             }
         });
     </script>
-<script src="stripe-checkout.js"></script>
-</body>
-</html>
 </body>
 </html>
