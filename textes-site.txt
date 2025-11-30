@@ -1,4 +1,4 @@
-# Textes du sous-menu gamme Suminagashi
+# Texte du sous-menu gamme Suminagashi
 
 Cet acier damas de 67 couches est nommé Suminagashi, un terme qui désigne tout d'abord la technique du papier marbré japonais, un art décoratif datant du 12e siècle.
 
@@ -130,6 +130,25 @@ Caractéristiques
 • Dimensions : Long. 312 mm • lame 180 mm • Larg. 49 mm
 • Poids : 182 g
 
+# Texte du sous-menu gamme Hirazukuri
+
+Une rencontre assumée entre l’Est et l’Ouest.
+Lame purement japonaise : géométrie traditionnelle (gyuto, santoku, kudamono…), affûtée à la main sur pierres naturelles, tranchant rasoir.
+Manche YO c'est à dire full-tang, façon occidentale pour une prise franche et puissante.
+Acier Inoxydable X50CrMoV15 C’est allemand. Solide, inoxydable, facile d’entretien et d’affûtage. Un acier « travailleur » qui ne fait pas de manières, choisi ici pour sa fiabilité sans chichi.
+
+
+# Textes des Popups gamme Hirazukuri
+
+Gyuto Hirazukuri
+140€
+
+Description
+Le Gyuto bôchô (littéralement couteau à bœuf) est l'équivalent du couteau de chef européen. Il est directement inspiré de ce dernier, les français ayant introduit ce couteau au Japon dans la seconde moitié du 19ème siècle. La lame possède la forme (le ventre est arrondi) et les dimensions (de 15 à 27 cm) qui permettent d'émincer et de trancher tous types d'aliments, viande, légumes ou poisson.
+
+Caractéristiques
+• Lame : Acier Inox X50CrMoV15 • Manche : Bois de Palmier (Bali), Buis (France), Padouk (Afrique) • Dimensions : Long. 280 mm • lame 148 mm • Larg. 40 mm • Poids : env. 180 g
+
 
 # Textes des Popups Puukko
 
@@ -218,6 +237,10 @@ Téléphone
 +33 7 79 08 33 67
 
 Sur rendez-vous uniquement
+
+
+Taille image :
+1920x1080 94 pixels
 
 
 
