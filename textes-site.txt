@@ -130,24 +130,117 @@ Caractéristiques
 • Dimensions : Long. 312 mm • lame 180 mm • Larg. 49 mm
 • Poids : 182 g
 
+
+
 # Texte du sous-menu gamme Hirazukuri
 
 Une rencontre assumée entre l’Est et l’Ouest.
 Lame purement japonaise : géométrie traditionnelle (gyuto, santoku, kudamono…), affûtée à la main sur pierres naturelles, tranchant rasoir.
 Manche YO c'est à dire full-tang, façon occidentale pour une prise franche et puissante.
-Acier Inoxydable X50CrMoV15 C’est allemand. Solide, inoxydable, facile d’entretien et d’affûtage. Un acier « travailleur » qui ne fait pas de manières, choisi ici pour sa fiabilité sans chichi.
+L'acier X50CrMoV15 présente des qualités inhérentes à une lame destinée à durer. Comme souvent chez les aciers efficaces, il se distingue par trois atouts : 
+• Une teneur en chrome exceptionnelle, ce qui en fait un acier inox de référence. 
+• Un apport en molybdène qui renforce la résistance à la corrosion déjà élevée. 
+• Une touche de vanadium bienvenue qui renforce les effets du carbone et assouplit la lame.  
+Grâce à ces trois caractéristiques, le X50CrMoV15 est un acier extrêmement résistant à la corrosion et aux chocs.
 
 
 # Textes des Popups gamme Hirazukuri
 
-Gyuto Hirazukuri
-140€
+Gyuto Hirazukuri Frêne • Loupe d'Orme
+90€
 
 Description
 Le Gyuto bôchô (littéralement couteau à bœuf) est l'équivalent du couteau de chef européen. Il est directement inspiré de ce dernier, les français ayant introduit ce couteau au Japon dans la seconde moitié du 19ème siècle. La lame possède la forme (le ventre est arrondi) et les dimensions (de 15 à 27 cm) qui permettent d'émincer et de trancher tous types d'aliments, viande, légumes ou poisson.
 
 Caractéristiques
-• Lame : Acier Inox X50CrMoV15 • Manche : Bois de Palmier (Bali), Buis (France), Padouk (Afrique) • Dimensions : Long. 280 mm • lame 148 mm • Larg. 40 mm • Poids : env. 180 g
+• Lame : Acier Inox X50CrMoV15 • Manche : Frêne (France), Loupe d'Orme (France) • Dimensions : Long. 310 mm • lame 190 mm • Larg. 44 mm • Poids : env. 180 g
+
+Gyuto Hirazukuri Nangka
+90€
+
+Description
+Le Gyuto bôchô (littéralement couteau à bœuf) est l'équivalent du couteau de chef européen. Il est directement inspiré de ce dernier, les français ayant introduit ce couteau au Japon dans la seconde moitié du 19ème siècle. La lame possède la forme (le ventre est arrondi) et les dimensions (de 15 à 27 cm) qui permettent d'émincer et de trancher tous types d'aliments, viande, légumes ou poisson.
+
+Caractéristiques
+• Lame : Acier Inox X50CrMoV15 • Manche : Nangka Jacquier (Bali) • Dimensions : Long. 310 mm • lame 190 mm • Larg. 44 mm • Poids : env. 180 g
+
+Gyuto Hirazukuri Noyer
+90€
+
+Description
+Le Gyuto bôchô (littéralement couteau à bœuf) est l'équivalent du couteau de chef européen. Il est directement inspiré de ce dernier, les français ayant introduit ce couteau au Japon dans la seconde moitié du 19ème siècle. La lame possède la forme (le ventre est arrondi) et les dimensions (de 15 à 27 cm) qui permettent d'émincer et de trancher tous types d'aliments, viande, légumes ou poisson.
+
+Caractéristiques
+• Lame : Acier Inox X50CrMoV15 • Manche : Noyer (France) • Dimensions : Long. 310 mm • lame 190 mm • Larg. 44 mm • Poids : env. 180 g
+
+
+Gyuto Hirazukuri Palissandre
+90€
+
+Description
+Le Gyuto bôchô (littéralement couteau à bœuf) est l'équivalent du couteau de chef européen. Il est directement inspiré de ce dernier, les français ayant introduit ce couteau au Japon dans la seconde moitié du 19ème siècle. La lame possède la forme (le ventre est arrondi) et les dimensions (de 15 à 27 cm) qui permettent d'émincer et de trancher tous types d'aliments, viande, légumes ou poisson.
+
+Caractéristiques
+• Lame : Acier Inox X50CrMoV15 • Manche : Palissandre Sonokeling (Bali) • Dimensions : Long. 310 mm • lame 190 mm • Larg. 44 mm • Poids : env. 180 g
+
+
+
+Santoku Hirazukuri Amourette
+90€
+
+Description
+Le Santoku est un des couteaux japonais les plus connus. Il signifie « trois vertus » en japonais. Ses fameuses 3 vertus sont sa capacité à couper le poisson, la viande et les fruits & légumes.
+
+Caractéristiques
+• Lame : Acier Inox X50CrMoV15 • Manche : Amourette Bois Serpent (Guyanne) • Dimensions : Long. 295 mm • lame 170 mm • Larg. 40 mm • Poids : env. 180 g
+
+
+Santoku Hirazukuri Frêne • Bois stabilisé
+90€
+
+Description
+Le Santoku est un des couteaux japonais les plus connus. Il signifie « trois vertus » en japonais. Ses fameuses 3 vertus sont sa capacité à couper le poisson, la viande et les fruits & légumes.
+
+Caractéristiques
+• Lame : Acier Inox X50CrMoV15 • Manche : Frêne (France) Bois stabilisé  • Dimensions : Long. 295 mm • lame 170 mm • Larg. 40 mm • Poids : env. 180 g
+
+
+Santoku Hirazukuri Bois stabilisé gris
+90€
+
+Description
+Le Santoku est un des couteaux japonais les plus connus. Il signifie « trois vertus » en japonais. Ses fameuses 3 vertus sont sa capacité à couper le poisson, la viande et les fruits & légumes.
+
+Caractéristiques
+• Lame : Acier Inox X50CrMoV15 • Manche : Bois stabilisé gris • Dimensions : Long. 295 mm • lame 170 mm • Larg. 40 mm • Poids : env. 180 g
+
+
+Kudamono Hirazukuri Chêne
+50€
+
+Description
+Le Kudamono ou couteau d'office sert au nettoyage et à la découpe des légumes. C'est un couteau rigide qui se caractérise en outre par un bout pointu. Sa petite taille le rend donc extrêmement maniable et permet d'effectuer des découpes fines et précises. Éplucher, découper, tailler, il sait tout faire.
+
+Caractéristiques
+• Lame : Acier Inox X50CrMoV15 • Manche : Chêne (France) • Dimensions : Long. 215 mm • lame 110 mm • Larg. 20 mm • Poids : env. 110 g
+
+Kudamono Hirazukuri Ébène
+50€
+
+Description
+Le Kudamono ou couteau d'office sert au nettoyage et à la découpe des légumes. C'est un couteau rigide qui se caractérise en outre par un bout pointu. Sa petite taille le rend donc extrêmement maniable et permet d'effectuer des découpes fines et précises. Éplucher, découper, tailler, il sait tout faire.
+
+Caractéristiques
+• Lame : Acier Inox X50CrMoV15 • Manche : Ébène (Gabon) • Dimensions : Long. 215 mm • lame 110 mm • Larg. 20 mm • Poids : env. 110 g
+
+Kudamono Hirazukuri Loupe d'Orme
+50€
+
+Description
+Le Kudamono ou couteau d'office sert au nettoyage et à la découpe des légumes. C'est un couteau rigide qui se caractérise en outre par un bout pointu. Sa petite taille le rend donc extrêmement maniable et permet d'effectuer des découpes fines et précises. Éplucher, découper, tailler, il sait tout faire.
+
+Caractéristiques
+• Lame : Acier Inox X50CrMoV15 • Manche : Loupe d'Orme (France) incrustation résine turquoise • Dimensions : Long. 215 mm • lame 110 mm • Larg. 20 mm • Poids : env. 110 g
 
 
 # Textes des Popups Puukko
@@ -156,7 +249,11 @@ Puukko Inox
 140€
 
 Description
-L'acier X50CrMoV15 présente des qualités inhérentes à une lame destinée à durer. Comme souvent chez les aciers efficaces, il se distingue par trois atouts : • Une teneur en chrome exceptionnelle, ce qui en fait un acier inox de référence. • Un apport en molybdène qui renforce la résistance à la corrosion déjà élevée. • Une touche de vanadium bienvenue qui renforce les effets du carbone et assouplit la lame.  Grâce à ces trois caractéristiques, le X50CrMoV15 est un acier extrêmement résistant à la corrosion et aux chocs.
+L'acier X50CrMoV15 présente des qualités inhérentes à une lame destinée à durer. Comme souvent chez les aciers efficaces, il se distingue par trois atouts : 
+• Une teneur en chrome exceptionnelle, ce qui en fait un acier inox de référence. 
+• Un apport en molybdène qui renforce la résistance à la corrosion déjà élevée. 
+• Une touche de vanadium bienvenue qui renforce les effets du carbone et assouplit la lame.  
+Grâce à ces trois caractéristiques, le X50CrMoV15 est un acier extrêmement résistant à la corrosion et aux chocs.
 
 Caractéristiques
 • Lame : X50CrMov15
@@ -237,22 +334,6 @@ Téléphone
 +33 7 79 08 33 67
 
 Sur rendez-vous uniquement
-
-
-Taille image :
-1920x1080 94 pixels
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
