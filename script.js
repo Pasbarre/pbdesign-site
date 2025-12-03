@@ -227,6 +227,218 @@ const productData = {
         images: [
             "assets/Photos-couteaux/Accessoires/Porte_6couteaux.jpeg"
         ]
+    },
+    // Nouveaux porte-couteaux
+    "porte-xl-yakisugi": {
+        name: "Porte-couteaux Taille XL Yakizugi",
+        price: "60€",
+        description: "Porte-couteau magnétique chêne massif, bandeau en Yakizugi (technique japonaise de bois brulé)",
+        characteristics: [
+            "• Aimants Neodyme N52",
+            "• Dimensions : Long.env. 400 mm • largeur 80 mm • Epaisseur 20 mm",
+            "• Poids : env. 680 g"
+        ],
+        images: [
+            "assets/Accessoires/Photos-porte-couteaux/1-Porte-couteaux-GM-yakisugi.jpg"
+        ]
+    },
+    "porte-xl-loupeorme-2": {
+        name: "Porte-couteaux Taille XL Loupe d'Orme",
+        price: "60€",
+        description: "Porte-couteau magnétique chêne massif, bandeau en loupe d'orme",
+        characteristics: [
+            "• Aimants Neodyme N52",
+            "• Dimensions : Long.env. 400 mm • largeur 80 mm • Epaisseur 20 mm",
+            "• Poids : env. 680 g"
+        ],
+        images: [
+            "assets/Accessoires/Photos-porte-couteaux/2-Porte-couteaux-GM-loupeorme.jpg"
+        ]
+    },
+    "porte-xl-frene": {
+        name: "Porte-couteaux Taille XL Frêne",
+        price: "60€",
+        description: "Porte-couteau magnétique chêne massif, Frêne",
+        characteristics: [
+            "• Aimants Neodyme N52",
+            "• Dimensions : Long.env. 400 mm • largeur 80 mm • Epaisseur 20 mm",
+            "• Poids : env. 680 g"
+        ],
+        images: [
+            "assets/Accessoires/Photos-porte-couteaux/3-Porte-couteaux-GM-frene.jpg"
+        ]
+    },
+    "porte-xl-loupeorme-4": {
+        name: "Porte-couteaux Taille XL Loupe d'Orme",
+        price: "60€",
+        description: "Porte-couteau magnétique chêne massif, bandeau en loupe d'orme",
+        characteristics: [
+            "• Aimants Neodyme N52",
+            "• Dimensions : Long.env. 400 mm • largeur 80 mm • Epaisseur 20 mm",
+            "• Poids : env. 680 g"
+        ],
+        images: [
+            "assets/Accessoires/Photos-porte-couteaux/4-Porte-couteaux-GM-loupeorme.jpg"
+        ]
+    },
+    "porte-m-loupeorme-5": {
+        name: "Porte-couteaux Taille M Loupe d'Orme",
+        price: "50€",
+        description: "Porte-couteau magnétique chêne massif, bandeau en loupe d'orme",
+        characteristics: [
+            "• Aimants Neodyme N52",
+            "• Dimensions : Long.env. 340 mm • largeur 80 mm • Epaisseur 20 mm",
+            "• Poids : env. 590 g"
+        ],
+        images: [
+            "assets/Accessoires/Photos-porte-couteaux/5-Porte-couteaux-MM-loupeorme.jpg"
+        ]
+    },
+    "porte-m-bleu": {
+        name: "Porte-couteaux Taille M Bleu",
+        price: "50€",
+        description: "Porte-couteau magnétique chêne massif, bandeau bois teinté bleu",
+        characteristics: [
+            "• Aimants Neodyme N52",
+            "• Dimensions : Long.env. 340 mm • largeur 80 mm • Epaisseur 20 mm",
+            "• Poids : env. 590 g"
+        ],
+        images: [
+            "assets/Accessoires/Photos-porte-couteaux/6-Porte-couteaux-MM-bleu.jpg"
+        ]
+    },
+    "porte-m-loupeorme-7": {
+        name: "Porte-couteaux Taille M Loupe d'Orme",
+        price: "50€",
+        description: "Porte-couteau magnétique chêne massif, bandeau en loupe d'orme",
+        characteristics: [
+            "• Aimants Neodyme N52",
+            "• Dimensions : Long.env. 340 mm • largeur 80 mm • Epaisseur 20 mm",
+            "• Poids : env. 590 g"
+        ],
+        images: [
+            "assets/Accessoires/Photos-porte-couteaux/7-Porte-couteaux-MM-loupeorme.jpg"
+        ]
+    },
+    "porte-m-loupeorme-8": {
+        name: "Porte-couteaux Taille M Loupe d'Orme",
+        price: "50€",
+        description: "Porte-couteau magnétique chêne massif, bandeau en loupe d'orme",
+        characteristics: [
+            "• Aimants Neodyme N52",
+            "• Dimensions : Long.env. 340 mm • largeur 80 mm • Epaisseur 20 mm",
+            "• Poids : env. 590 g"
+        ],
+        images: [
+            "assets/Accessoires/Photos-porte-couteaux/8-Porte-couteaux-MM-loupeorme.jpg"
+        ]
+    },
+    "porte-s-yakisugi-9": {
+        name: "Porte-couteaux Taille S Yakizugi",
+        price: "40€",
+        description: "Porte-couteau magnétique chêne massif, bandeau en Yakizugi(technique japonaise de bois brulé)",
+        characteristics: [
+            "• Aimants Neodyme N52",
+            "• Dimensions : Long.env. 300 mm • largeur 80 mm • Epaisseur 20 mm",
+            "• Poids : env. 460 g"
+        ],
+        images: [
+            "assets/Accessoires/Photos-porte-couteaux/9-Porte-couteaux-PM-yakisugi.jpg"
+        ]
+    },
+    "porte-s-yakisugi-10": {
+        name: "Porte-couteaux Taille S Yakizugi",
+        price: "40€",
+        description: "Porte-couteau magnétique chêne massif, bandeau en Yakizugi(technique japonaise de bois brulé)",
+        characteristics: [
+            "• Aimants Neodyme N52",
+            "• Dimensions : Long.env. 300 mm • largeur 80 mm • Epaisseur 20 mm",
+            "• Poids : env. 460 g"
+        ],
+        images: [
+            "assets/Accessoires/Photos-porte-couteaux/10-Porte-couteaux-PM-yakisugi.jpg"
+        ]
+    },
+    "porte-s-rouge": {
+        name: "Porte-couteaux Taille S Rouge",
+        price: "40€",
+        description: "Porte-couteau magnétique chêne massif, bandeau bois teinté rouge",
+        characteristics: [
+            "• Aimants Neodyme N52",
+            "• Dimensions : Long.env. 320 mm • largeur 80 mm • Epaisseur 20 mm",
+            "• Poids : env. 480 g"
+        ],
+        images: [
+            "assets/Accessoires/Photos-porte-couteaux/11-Porte-couteaux-rouge.jpg"
+        ]
+    },
+    "bloc-loupeorme": {
+        name: "Bloc Porte-couteaux Loupe d'orme",
+        price: "70€",
+        description: "Bloc en loupe d'orme massif contre collé",
+        characteristics: [
+            "• Dimensions : Hauteur 150 mm • largeur 80 mm • Epaisseur 70 mm",
+            "• Poids : env. 496 g"
+        ],
+        images: [
+            "assets/Accessoires/Photos-porte-couteaux/14-Porte-couteau-orme-1.jpeg",
+            "assets/Accessoires/Photos-porte-couteaux/15-Porte-couteau-orme-2.jpeg",
+            "assets/Accessoires/Photos-porte-couteaux/16-Porte-couteau-orme-3.jpeg",
+            "assets/Accessoires/Photos-porte-couteaux/17-Porte-couteau-orme-4.jpeg",
+            "assets/Accessoires/Photos-porte-couteaux/18-Porte-couteau-orme-5.jpeg"
+        ]
+    },
+    "bloc-hetre": {
+        name: "Bloc Porte-couteaux Hêtre",
+        price: "70€",
+        description: "Bloc en hêtre massif sculpté",
+        characteristics: [
+            "• Dimensions : Hauteur 130 mm • diamètre 80 mm",
+            "• Poids : env. 496 g"
+        ],
+        images: [
+            "assets/Accessoires/Photos-porte-couteaux/19-Porte-couteau-hetre-1.jpeg",
+            "assets/Accessoires/Photos-porte-couteaux/20-Porte-couteau-hetre-2.jpeg"
+        ]
+    },
+    "porte-katanakake": {
+        name: "Porte couteau Katanakake",
+        price: "30€",
+        description: "Mettez en Scène Votre Couteau comme un sabre japonais !",
+        characteristics: [
+            "• Bois Red Cedar",
+            "• Dimensions : Longueur 215 mm • largeur 40 mm • Hauteur 100 mm",
+            "• Poids : 28 g"
+        ],
+        images: [
+            "assets/Accessoires/Photos-porte-couteaux/21-Porte_couteau_Kantanake-masque.jpg"
+        ]
+    },
+    "porte-5couteaux": {
+        name: "Porte couteau de collection 5 couteaux",
+        price: "60€",
+        description: "Mettez en Scène Votre Collection\nNe cachez plus vos couteaux. Ce Porte-Couteaux d'Exposition Vertical est conçu pour les lames qui méritent d'être vues.\nC'est la solution idéale pour transformer votre collection en véritable pièce maîtresse de votre cuisine ou atelier.",
+        characteristics: [
+            "• Bois de noisetier et Spruce",
+            "• Dimensions : Largeur 435 mm Profondeur 80 mm Hauteur 380 mm",
+            "• Poids : env. 1130 g"
+        ],
+        images: [
+            "assets/Accessoires/Photos-porte-couteaux/22-Porte_5couteaux_masque.jpg"
+        ]
+    },
+    "porte-6couteaux-new": {
+        name: "Porte couteau de collection 6 couteaux",
+        price: "70€",
+        description: "Mettez en Scène Votre Collection\nNe cachez plus vos couteaux. Ce Porte-Couteaux d'Exposition Vertical est conçu pour les lames qui méritent d'être vues.\nC'est la solution idéale pour transformer votre collection en véritable pièce maîtresse de votre cuisine ou atelier.",
+        characteristics: [
+            "• Bois de noisetier et Spruce",
+            "• Dimensions : Largeur 445 mm Profondeur 80 mm Hauteur 420 mm",
+            "• Poids : env. 1200 g"
+        ],
+        images: [
+            "assets/Accessoires/Photos-porte-couteaux/23-Porte_6couteaux_masque.jpg"
+        ]
     }
 };
 
