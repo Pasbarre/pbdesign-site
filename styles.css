@@ -1,8 +1,11 @@
 /* Variables de couleur */
 :root {
-    --color-primary: #40010D;  /* Pour les boutons et bandeaux */
-    --color-text: #736D62;     /* Pour les textes */
-    --color-bg: #D9CBBA;       /* Pour les fonds */
+    --color-primary: #40010D;
+    /* Pour les boutons et bandeaux */
+    --color-text: #736D62;
+    /* Pour les textes */
+    --color-bg: #D9CBBA;
+    /* Pour les fonds */
 }
 
 /* Styles de base */
@@ -12,7 +15,11 @@ body {
     color: var(--color-text);
 }
 
-h1, h2, h3, h4, .logo-text {
+h1,
+h2,
+h3,
+h4,
+.logo-text {
     font-family: 'Fredericka the Great', cursive;
     font-weight: normal;
 }
@@ -43,12 +50,14 @@ button:hover {
 }
 
 /* Formulaires */
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
     border-color: var(--color-primary) !important;
     outline: none;
 }
 
-input, textarea {
+input,
+textarea {
     background-color: var(--color-bg) !important;
     border-color: var(--color-primary) !important;
     color: var(--color-text) !important;
@@ -57,7 +66,7 @@ input, textarea {
 
 /* Images et carrousel */
 .hero-image {
-    background-image: linear-gradient(rgba(64, 1, 13, 0.7), rgba(38, 32, 1, 0.3)), url('https://images.unsplash.com/photo-1589476993333-557386937aea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-image: linear-gradient(rgba(64, 1, 13, 0.7), rgba(38, 32, 1, 0.3)), url('assets/composite_acceuil_logo1920x1080.png');
     background-size: cover;
     background-position: center;
 }
@@ -65,10 +74,6 @@ input, textarea {
 /* Cartes produits */
 .product-card {
     background-color: var(--color-bg);
-}
-
-.product-card:hover .product-overlay {
-    opacity: 1;
 }
 
 /* Navigation */
@@ -124,4 +129,45 @@ input, textarea {
 
 .primary-bg {
     background-color: var(--color-primary);
+}
+
+/* Media Queries pour Mobile */
+@media (max-width: 768px) {
+
+    /* Section Paiement / Vente Directe */
+    #paiement .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    #paiement p {
+        font-size: 1.1rem;
+        /* Un peu plus grand pour la lisibilité */
+        line-height: 1.6;
+    }
+
+    /* Modales et Carrousels */
+    .modal-content {
+        padding: 1rem;
+        width: 95vw;
+        margin: auto;
+    }
+
+    #modal-image {
+        height: auto;
+        max-height: 50vh;
+        width: 100%;
+    }
+
+    /* Thumbnail container scrollable ou mieux espacé sur mobile */
+    #thumbnail-container {
+        gap: 0.5rem;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+    }
+
+    /* Empêcher tout débordement horizontal */
+    body {
+        overflow-x: hidden;
+    }
 }
