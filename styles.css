@@ -26,6 +26,13 @@ h4,
 
 /* Polices */
 @font-face {
+    font-family: 'Stampwriter';
+    src: url('Typos/STAMPWRITER-KIT.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'Fredericka the Great';
     src: url('Typos/Fredericka_the_Great/FrederickatheGreat-Regular.ttf') format('truetype');
     font-weight: normal;
@@ -37,6 +44,16 @@ h4,
     src: url('Typos/Comfortaa/Comfortaa-VariableFont_wght.ttf') format('truetype');
     font-weight: 300 700;
     font-style: normal;
+}
+
+/* Styles spéciaux */
+.sold-stamp {
+    color: #FF0000;
+    font-family: 'Stampwriter', cursive;
+    text-transform: uppercase;
+    transform: rotate(-15deg);
+    display: inline-block;
+    margin-left: 10px;
 }
 
 /* Boutons et interactions */
