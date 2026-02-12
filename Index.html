@@ -218,6 +218,30 @@
             transform: translateY(10px);
             /* Décalage permanent de 1cm vers le bas */
         }
+
+        /* Boutons histoire avec ombre à 45° */
+        .histoire-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .histoire-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+        }
+
+        .histoire-btn img {
+            display: block;
+            filter: drop-shadow(4px 4px 8px rgba(64, 1, 13, 0.4));
+            transition: filter 0.3s ease;
+        }
+
+        .histoire-btn:hover img {
+            filter: drop-shadow(6px 6px 16px rgba(64, 1, 13, 0.6));
+        }
     </style>
 </head>
 
@@ -268,7 +292,7 @@
         <div class="text-center px-4 relative z-10">
             <h1 class="text-6xl md:text-9xl font-light mb-6" style="color: var(--color-primary);">PBDesign</h1>
             <p class="text-2xl md:text-3xl mb-10 max-w-3xl mx-auto font-medium" style="color: var(--color-primary);">
-                Coutellerie artisanale d'inspiration scandinave et japonaise</p>
+                Coutellerie artisanale d'inspiration nordique et japonaise</p>
 
         </div>
     </section>
@@ -1186,7 +1210,152 @@
     <!-- Histoires Section -->
     <section id="histoires" class="py-16 px-6" style="background-color: var(--color-bg);">
         <div class="container mx-auto">
-            <h2 class="text-5xl font-light mb-12 text-center" style="color: #40010D;">Histoire de la lame japonaise</h2>
+            <!-- Boutons histoire -->
+            <div class="flex justify-center gap-16 mb-16 pt-8">
+                <a href="#histoire-nordique" class="histoire-btn">
+                    <img src="assets/Histoires/Rhune-histoire.png" alt="Rhune histoire" class="h-64 w-auto">
+                </a>
+                <a href="#histoire-japonais" class="histoire-btn">
+                    <img src="assets/Histoires/Kangi-histoire.png" alt="Kangi histoire" class="h-64 w-auto">
+                </a>
+            </div>
+
+            <!-- Histoire du couteau nordique -->
+            <div class="mb-32" id="histoire-nordique" style="scroll-margin-top: 100px;">
+                <h2 class="text-5xl font-light mb-12 text-center" style="color: #40010D;">Histoire du couteau nordique</h2>
+
+                <div class="max-w-4xl mx-auto space-y-12" style="color: var(--color-text);">
+                    
+                    <!-- Section 1: Le fer des marais -->
+                    <div>
+                        <h3 class="text-2xl mb-4 font-light">• Le fer des marais</h3>
+                        
+                        <div class="space-y-4 leading-relaxed mb-6">
+                            <p>Avant d'être un couteau, le puukko est d'abord une matière.</p>
+                            
+                            <p>Dans le nord de l'Europe, le fer ne provient pas de mines profondes mais de dépôts de marais.
+                            Ce minerai pauvre est réduit dans de petits bas-fourneaux d'argile donnant une loupe de métal mêlée de scories.</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <img src="assets/Histoires/Forgerons-vikings.png" alt="Forgerons vikings" 
+                                 class="w-full rounded shadow-lg" style="height: auto; object-fit: contain;">
+                        </div>
+                        
+                        <div class="space-y-4 leading-relaxed mb-6">
+                            <p>Les fragments sont chauffés puis martelés jusqu'à fusion solide.
+                            Le forgeron replie et ressoude plusieurs fois la matière afin d'éliminer les impuretés et répartir le carbone.</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <img src="assets/Histoires/acier-viking-refroidi.jpeg" alt="Acier viking refroidi" 
+                                 class="w-full rounded shadow-lg" style="height: auto; object-fit: contain;">
+                        </div>
+                        
+                        <div class="space-y-4 leading-relaxed">
+                            <p>Le résultat n'est pas un acier très dur mais un métal équilibré, facile à affûter et réparable partout — qualité essentielle pour un outil quotidien.</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Naissance du puukko -->
+                    <div>
+                        <h3 class="text-2xl mb-4 font-light">• Naissance du puukko</h3>
+                        
+                        <div class="mb-6">
+                            <img src="assets/Histoires/Ancien-puukko.png" alt="Ancien puukko" 
+                                 class="w-full rounded shadow-lg" style="height: auto; object-fit: contain;">
+                        </div>
+                        
+                        <p class="italic mb-6">(Finlande — fin de l'âge du fer, env. IIIᵉ-VIᵉ siècle)</p>
+                        
+                        <div class="space-y-4 leading-relaxed">
+                            <p>Dans les régions forestières finlandaises apparaît un couteau simple destiné au travail du bois.
+                            Son nom vient de puu, « bois », associé au suffixe -kko désignant un objet : littéralement, l'outil du bois.</p>
+                            
+                            <p>Sa forme se fixe très tôt :
+                            lame courte, tranchant droit, pointe alignée et manche sans garde.
+                            Le biseau large — aujourd'hui appelé émouture scandinave — vient directement au tranchant afin de guider la coupe dans le bois et permettre un affûtage simple.</p>
+                            
+                            <p>L'outil est tenu près du fil et contrôlé avec précision.
+                            Il sert à fabriquer, réparer, préparer la nourriture et travailler le cuir.</p>
+                            
+                            <p>Le couteau n'est pas une arme : il accompagne la vie quotidienne.</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Un objet personnel -->
+                    <div>
+                        <h3 class="text-2xl mb-4 font-light">• Un objet personnel</h3>
+                        
+                        <div class="mb-6">
+                            <img src="assets/Histoires/Sami_man_in_his_hut.jpg" alt="Homme Sami dans sa hutte" 
+                                 class="w-full rounded shadow-lg" style="height: auto; object-fit: contain;">
+                        </div>
+                        
+                        <div class="space-y-4 leading-relaxed">
+                            <p>Dans les sociétés nordiques, chacun porte son couteau.
+                            Il fait partie de l'équipement individuel au même titre que la hache ou le briquet à feu.</p>
+                            
+                            <p>Sa valeur vient de sa fiabilité plutôt que de son prestige.
+                            La décoration reste rare : l'efficacité prime sur l'apparence.</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: Birka -->
+                    <div>
+                        <h3 class="text-2xl mb-4 font-light">• Birka : la preuve archéologique</h3>
+                        <p class="italic mb-6">(Suède — IXᵉ-Xᵉ siècle)</p>
+                        
+                        <div class="mb-6">
+                            <img src="assets/Histoires/Birka-city.jpg" alt="Birka city" 
+                                 class="w-full rounded shadow-lg" style="height: auto; object-fit: contain;">
+                        </div>
+                        
+                        <div class="space-y-4 leading-relaxed">
+                            <p>Le comptoir commercial de Birka, l'une des principales villes portuaires de la Baltique à son époque, a livré de nombreux couteaux très proches du puukko moderne.</p>
+                            
+                            <p>Ces découvertes montrent que ce type de lame était largement répandu et utilisé par toutes les couches de la société.</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 5: Diffusion à l'époque viking -->
+                    <div>
+                        <h3 class="text-2xl mb-4 font-light">• Diffusion à l'époque viking</h3>
+                        
+                        <div class="mb-6">
+                            <img src="assets/Histoires/puukko-dans-drakkar.png" alt="Puukko dans un drakkar" 
+                                 class="w-full rounded shadow-lg" style="height: auto; object-fit: contain;">
+                        </div>
+                        
+                        <div class="space-y-4 leading-relaxed">
+                            <p>Lorsque débute l'expansion scandinave, les navigateurs emportent leurs outils avec eux.
+                            Le couteau utilitaire nordique circule alors autour de la Baltique et s'intègre aux cultures voisines.</p>
+                            
+                            <p>Les Vikings ne créent pas ce couteau : ils contribuent à sa diffusion.</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 6: Un héritage vivant -->
+                    <div>
+                        <h3 class="text-2xl mb-4 font-light">• Un héritage vivant</h3>
+                        
+                        <div class="mb-6">
+                            <img src="assets/Histoires/Puukko-pomme-branche.png" alt="Puukko et pomme sur branche" 
+                                 class="w-full rounded shadow-lg" style="height: auto; object-fit: contain;">
+                        </div>
+                        
+                        <div class="space-y-4 leading-relaxed">
+                            <p>La forme du puukko n'a presque pas changé.
+                            Elle répond simplement à un usage constant : travailler la matière plutôt que la combattre.</p>
+                            
+                            <p>Comme souvent pour les outils nés du quotidien, l'évolution s'arrête lorsque la fonction est atteinte.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <h2 id="histoire-japonais" class="text-5xl font-light mb-12 text-center" style="color: #40010D; scroll-margin-top: 100px;">Histoire du couteau japonais</h2>
 
             <div class="max-w-4xl mx-auto space-y-12" style="color: var(--color-text);">
                 
@@ -1196,7 +1365,7 @@
                     <p class="italic mb-6">(période Nara — VIIIᵉ siècle)</p>
                     
                     <div class="mb-6">
-                        <img src="assets/Histoires/recolte-du-fer-japon.jpg" alt="Récolte du fer au Japon" 
+                        <img src="assets/Histoires/recolte-du-fer-japon2.png" alt="Récolte du fer au Japon" 
                              class="w-full rounded shadow-lg" style="height: auto; object-fit: contain;">
                     </div>
                     
@@ -1220,6 +1389,8 @@
                     <div class="space-y-4 leading-relaxed">
                         <p>Ce bloc était brisé au marteau.
                         La surface de rupture révélait la structure interne : éclat brillant pour les zones riches en carbone, grain plus mat pour les parties plus douces.</p>
+                        
+                        <p><br></p>
                         
                         <p>Le maître triait chaque fragment selon le son, la couleur et la texture afin de constituer différentes parties de la future lame.
                         Le forgeron japonais ne façonne donc pas seulement un objet : il compose sa matière.</p>
@@ -1291,6 +1462,8 @@
                         <p>Après l'ère Meiji, la cuisine quitte les maisons professionnelles pour entrer progressivement dans les foyers.
                         L'usage change : on ne cuisine plus un produit unique avec un outil dédié, mais des aliments variés avec un seul couteau.</p>
                         
+                        <p><br></p>
+                        
                         <p>Apparaissent alors des profils plus polyvalents :</p>
                         
                         <ul class="list-none space-y-2 pl-4">
@@ -1312,8 +1485,11 @@
                         <p>Le savoir-faire reste identique, seule la fonction évolue.
                         La lame n'est plus réservée à une caste ni à un cérémonial.</p>
                         
-                        <p>La tradition ne disparaît pas — elle se rapproche simplement du quotidien.
-                        La précision du geste passe du combat à la préparation du repas.</p>
+                        <p><br></p>
+                        
+                        <p>La tradition ne disparaît pas — elle se rapproche simplement du quotidien.</p>
+                        
+                        <p>La précision du geste passe du combat à la préparation du repas.</p>
                     </div>
                 </div>
 
